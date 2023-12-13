@@ -1,0 +1,93 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @displayCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCountBtn">Click me</button>
+<button class="btn btn-primary" @onclick="IncreaseClickValueBtn">Buy Click Value Up</button>
+<button class="btn btn-primary" @onclick="AddAutoClickerBtn">Buy AutoClicker</button>
+
+@code {
+    double gameTickSpeed = 1000; //time between frames in ms
+
+    bool gameIsRunning = true;
+    public int displayCount { 
+        get{return (int)(Math.Floor(currentCount));}
+        private set { currentCount = (double)value; }
+    }
+
+    public double currentCount = 0;
+    public double ClickValue { get; set; } = 1;
+    public double autoIncrementAmount { get; set; } = 0;
+    public double increaseClickValueBy = 0.1;
+    public double increaseClickValueCost = 5;
+    public double autoClickerValue = 0.01;
+    public double autoClickerCost = 5;
+
+    private void IncrementCountBtn()
+    {
+        currentCount += ClickValue;
+        StateHasChanged();
+    }
+
+    private void IncreaseClickValueBtn()
+    {
+        if (TryMakePurchaseWithCost(increaseClickValueCost))
+        {
+            ClickValue += increaseClickValueBy;
+        }
+    }
+
+    private void AddAutoClickerBtn()
+    {
+        if (TryMakePurchaseWithCost(autoClickerCost))
+        {
+            autoIncrementAmount += autoClickerValue; 
+        }
+    }
+
+    private bool TryMakePurchaseWithCost(double Cost)
+    {
+        if (currentCount < Cost)
+        {
+            return false;
+        }
+        currentCount -= Cost;
+        return true;
+    }
+
+    protected override void OnInitialized()
+    {
+        PeriodicTimer gameLoopTimer = new PeriodicTimer(TimeSpan.FromMicroseconds(gameTickSpeed));
+        base.OnInitialized();
+
+        _ = GameLoopAsync(gameLoopTimer);
+    }
+
+    private async Task GameLoopAsync(PeriodicTimer timer)
+    {
+        while (gameIsRunning)
+        {
+
+            await timer.WaitForNextTickAsync();
+            Update();
+            LateUpdate();
+        }
+    }
+
+    private void Update()
+    {
+        currentCount += autoIncrementAmount;
+        StateHasChanged();
+    }
+
+    private void LateUpdate()
+    {
+
+    }
+}
+

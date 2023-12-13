@@ -2,18 +2,28 @@
 
 <h1>Counter</h1>
 
-<p>Current count: @currentCount</p>
+<p>Current count: @displayCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
+    PeriodicTimer gameLoopTimer;
+    private int displayCount = 0;
 
-    [Parameter]
-    public int IncrementAmount { get; set; } = 1;
+    public double currentCount = 0;
+    public double IncrementAmount { get; set; } = 1;
+    public double IncreaseClickValue = 0.1;
 
     private void IncrementCount()
     {
         currentCount += IncrementAmount;
+        displayCount = (int)(Math.Floor(currentCount));
     }
+
+    private void IncreaseClickValue()
+    {
+        IncrementAmount += IncrementAmount;
+    }
+
+    private async Task GameLoopAsync(System.Threading.PeriodicTimer)
 }
