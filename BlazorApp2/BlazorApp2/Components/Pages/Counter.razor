@@ -12,7 +12,7 @@
 <button class="btn btn-primary" @onclick="AddAutoClickerBtn">Buy AutoClicker</button>
 
 @code {
-    double gameTickSpeed = 1000; //time between frames in ms
+    double gameTickSpeed = 100000; //time between frames in ms
 
     bool gameIsRunning = true;
     public int displayCount { 
@@ -28,6 +28,13 @@
     public double autoClickerValue = 0.01;
     public double autoClickerCost = 5;
 
+    struct ActionWithCost
+    {
+        public double cost;
+        public Action action;
+    }
+    Queue<ActionWithCost> playerInputs = new Queue<ActionWithCost>();
+
     private void IncrementCountBtn()
     {
         currentCount += ClickValue;
@@ -36,21 +43,22 @@
 
     private void IncreaseClickValueBtn()
     {
-        if (TryMakePurchaseWithCost(increaseClickValueCost))
-        {
-            ClickValue += increaseClickValueBy;
-        }
+        playerInputs.Enqueue(new ActionWithCost
+            {
+                cost = increaseClickValueCost,
+                action = () => ClickValue += increaseClickValueBy
+            });
     }
 
     private void AddAutoClickerBtn()
     {
-        if (TryMakePurchaseWithCost(autoClickerCost))
-        {
-            autoIncrementAmount += autoClickerValue; 
-        }
+        playerInputs.Enqueue(new ActionWithCost
+            {
+                cost = autoClickerCost,
+                action = () => autoIncrementAmount += autoClickerValue
+            });
     }
 
-    //should be queued to happen on update
     private bool TryMakePurchaseWithCost(double Cost)
     {
         if (currentCount < Cost)
@@ -82,6 +90,14 @@
 
     private void Update()
     {
+        while (playerInputs.Count > 0)
+        {
+            ActionWithCost actionWithCost = playerInputs.Dequeue();
+            if (TryMakePurchaseWithCost(actionWithCost.cost))
+            {
+                actionWithCost.action?.Invoke();
+            }
+        }
         currentCount += autoIncrementAmount;
         StateHasChanged();
     }
