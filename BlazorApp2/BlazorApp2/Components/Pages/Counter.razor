@@ -12,7 +12,7 @@
 <button class="btn btn-primary" @onclick="AddAutoClickerBtn">Buy AutoClicker</button>
 
 @code {
-    double gameTickSpeed = 100000; //time between frames in ms
+    double gameTickSpeed = 100000; //time between frames in microseconds
 
     bool gameIsRunning = true;
     public int displayCount { 
@@ -92,6 +92,7 @@
     {
         while (playerInputs.Count > 0)
         {
+            //dequeue player actions and apply effects of those actions
             ActionWithCost actionWithCost = playerInputs.Dequeue();
             if (TryMakePurchaseWithCost(actionWithCost.cost))
             {
