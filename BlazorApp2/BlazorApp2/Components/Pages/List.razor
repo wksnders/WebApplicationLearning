@@ -1,4 +1,5 @@
 ﻿@page "/List"
+@using BlazorApp2.Models
 @rendermode InteractiveServer
 
 <PageTitle>Game Catalog</PageTitle>
@@ -22,5 +23,21 @@
 </table>
 
 @code {
+    private List<ListItem> games = new List<ListItem>();
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        //test data
+        games.Add(new ListItem
+            {
+                Id = 1,
+                Name = "Street Fighter II",
+                Genere = "Fighting",
+                Price = 19.99M,
+                ReleaseDate = new DateTime(1991,2,1)
+            });
+
+    }
 }
