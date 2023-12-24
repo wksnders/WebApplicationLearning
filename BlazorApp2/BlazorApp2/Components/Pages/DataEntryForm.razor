@@ -1,0 +1,27 @@
+﻿@page "/game"
+@using BlazorApp2.Models
+
+<PageTitle>New Entry</PageTitle>
+<h3>DataEntryForm</h3>
+
+<div class=" row">
+    <div class=" col-sm-4">
+        <EditForm model ="@game">
+            <div>
+                <label for ="name" class="form-label">Name:</label>
+                <InputText id=" name" @bind-Value="game.Name" class=" form-control"></InputText>
+
+            </div>
+        </EditForm>
+    </div>
+</div>
+@code {
+    private ListItem game = new ListItem
+        {
+            Id = -1,
+            Name = string.Empty,
+            Genere = string.Empty,
+            Price = 0M,
+            ReleaseDate = DateTime.UtcNow
+        };
+}
