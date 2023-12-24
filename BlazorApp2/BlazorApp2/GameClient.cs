@@ -39,5 +39,10 @@ namespace BlazorApp2
             }
             return games;
         }
+
+        public static void AddGame(ListItem game) 
+        { 
+            games.Add(game);
+        }
     }
 }
