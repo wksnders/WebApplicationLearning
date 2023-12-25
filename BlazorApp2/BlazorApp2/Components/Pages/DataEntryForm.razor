@@ -22,7 +22,7 @@
             </div>
             <div class ="mb-3">
                 <label for="releaseDate" class="form-label">Release Date:</label>
-                <InputDate id=" releaseDate" @bind-Value="game.releaseDate" class=" form-control"></InputDate>
+                <InputDate id=" releaseDate" @bind-Value="game.ReleaseDate" class=" form-control"></InputDate>
             </div>
             <button type="submit" class=" btn btn-primary">Save</button>
         </EditForm>
@@ -41,6 +41,6 @@
     private void HandleSubmit()
     {
         GameClient.AddGame(game);
-        NavigationManager.NavigateTo("/List")
+        NavigationManager.NavigateTo("/List");
     }
 }
