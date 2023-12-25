@@ -7,6 +7,7 @@ namespace BlazorApp2
     {
 
         private static readonly List<ListItem> games = new List<ListItem>();
+        private static int NextID = 4;
 
         public static List<ListItem> GetGames()
         {
@@ -42,6 +43,8 @@ namespace BlazorApp2
 
         public static void AddGame(ListItem game) 
         { 
+            game.Id = NextID;
+            NextID++;
             games.Add(game);
         }
     }

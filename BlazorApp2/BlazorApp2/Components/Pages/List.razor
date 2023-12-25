@@ -1,6 +1,7 @@
 ﻿@page "/List"
 @using BlazorApp2.Models
 @rendermode InteractiveServer
+@inject NavigationManager NavigationManager
 
 <PageTitle>Game Catalog</PageTitle>
 
@@ -8,6 +9,13 @@
 <h3>Component</h3>
 
 <h1> Game Catalog</h1>
+
+<div class="row mb-4">
+    <div class="col sb-6">
+        <button type="button" class="btn btn-primary" @onclick ="HandleAddGame">Add Game</button>
+    </div>
+</div>
+
 @if (games is null)
 {
     <p><em>loading ...</em></p>
@@ -46,5 +54,11 @@ else
         base.OnInitialized();
 
         games = GameClient.GetGames();
+    }
+
+    private void HandleAddGame()
+    {
+        NavigationManager.NavigateTo("/game");
+
     }
 }
