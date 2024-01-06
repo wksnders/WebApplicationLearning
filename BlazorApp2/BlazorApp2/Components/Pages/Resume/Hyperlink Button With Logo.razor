@@ -1,0 +1,13 @@
+﻿<a href="@Hyperlink" class="button hyperlink">
+    
+    <span class="label">@ButtonText</span>
+</a>
+
+@code {
+    [Parameter]
+    public required string Hyperlink { get; set; }
+    [Parameter]
+    public required string ButtonText { get; set; }
+    //[Parameter] TODO
+    //public string image { get; set; }
+}
