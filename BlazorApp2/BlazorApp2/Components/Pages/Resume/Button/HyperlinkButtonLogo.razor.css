@@ -1,0 +1,43 @@
+﻿body {
+}
+
+.label {
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: left;
+    width: 100%;
+
+}
+
+a {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: left;
+
+    max-width: 100%;
+    width: 100%;
+
+    color: rgba(255,255,255,0.78);
+    border: solid 1px rgba(252,252,252,0.941);
+    border-radius: 2.375rem;
+    transition: transform 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+
+    height: 2.75rem;
+    line-height: 2.75rem;
+    padding: 0 1.375rem;
+    vertical-align: middle;
+
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+
+}

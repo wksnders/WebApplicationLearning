@@ -1,8 +1,9 @@
 ﻿@page "/resume"
+@using BlazorApp2.Components.Pages.Resume.Button
 
 <h3>ResumePage</h3>
 
-<div>
+<div class=" = background">
     <div class="image">
         <span class="frame">
             <img src="images/WyattHeadshot.jpg" alt="Wyatt Sanders's Profile Photo">
@@ -14,18 +15,18 @@
     <p class="text">
         Interested in connecting with me to talk about games? Reach out and email me or connect on Discord or LinkedIn!
     </p>
-    <ul id="buttons03" class="style1 buttons">
+    <ul class="buttons">
         <li>
-            <Hyperlink_Button_With_Logo Hyperlink="mailto:wksnders@gmail.com" ButtonText="Email" />
+            <HyperlinkButtonLogo Hyperlink="mailto:wksnders@gmail.com" ButtonText="Email" />
         </li>
         <li>
-            <Hyperlink_Button_With_Logo Hyperlink="https://drive.google.com/file/d/1bm4Vwtk8o6wn_HDoRKwNAUYWCL4aa-cv/view?usp=drive_link" ButtonText="Resume" />
+            <HyperlinkButtonLogo Hyperlink="https://drive.google.com/file/d/1bm4Vwtk8o6wn_HDoRKwNAUYWCL4aa-cv/view?usp=drive_link" ButtonText="Resume" />
         </li>
         <li>
-            <Hyperlink_Button_With_Logo Hyperlink="https://www.linkedin.com/in/wyatt-sanders/" ButtonText="LinkedIn" />
+            <HyperlinkButtonLogo Hyperlink="https://www.linkedin.com/in/wyatt-sanders/" ButtonText="LinkedIn" />
         </li>
         <li>
-            <Hyperlink_Button_With_Logo Hyperlink="https://discordapp.com/users/216400302553694209" ButtonText="Discord" />
+            <HyperlinkButtonLogo Hyperlink="https://discordapp.com/users/216400302553694209" ButtonText="Discord" />
         </li>
     </ul>
 </div>
