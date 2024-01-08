@@ -27,6 +27,34 @@ li {
     border: 0;
 }
 
+
+
+.textlight {
+    text-align: center;
+    color: rgba(0,0,0,0.639);
+    font-family: Arial, sans-serif;
+    font-size: 1.125em;
+    line-height: 1.75;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.texth2 {
+    text-align: center;
+    color: rgba(0,0,0,0.639);
+    font-family: Arial, sans-serif;
+    letter-spacing: -0.05rem;
+    width: 100%;
+    font-size: 1.875em;
+    line-height: 1.25;
+    font-weight: 400;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem 2rem;
+}
+
 .background {
     display: inline-block;
     background-color: lightgray;

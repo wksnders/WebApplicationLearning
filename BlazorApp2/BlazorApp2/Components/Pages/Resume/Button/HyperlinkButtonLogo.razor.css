@@ -1,7 +1,4 @@
-﻿body {
-}
-
-.label {
+﻿.label {
     overflow: hidden;
     flex-grow: 1;
     flex-shrink: 1;
@@ -10,7 +7,12 @@
 
 }
 
+a:hover {
+    transform: scale(1.06);
+}
+
 a {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -23,8 +25,6 @@ a {
     flex-shrink: 1;
     text-align: left;
 
-    max-width: 100%;
-    width: 100%;
 
     color: rgba(255,255,255,0.78);
     border: solid 1px rgba(252,252,252,0.941);
@@ -33,9 +33,10 @@ a {
     cursor: pointer;
 
     height: 2.75rem;
+    max-width: 100%;
+    width: auto;
     line-height: 2.75rem;
     padding: 0 1.375rem;
-    vertical-align: middle;
 
     font-family: Arial, sans-serif;
     font-size: 1em;
