@@ -11,6 +11,18 @@ a:hover {
     transform: scale(1.06);
 }
 
+img {
+    display: block;
+    width: 1em;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 100%;
+    min-width: 16px;
+    margin-left: 0.875rem;
+    transition: fill 0.25s ease;
+    box-sizing: border-box;
+}
+
 a {
     display: inline-flex;
     align-items: center;

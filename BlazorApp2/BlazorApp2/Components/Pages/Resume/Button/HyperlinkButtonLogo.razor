@@ -1,6 +1,6 @@
 ﻿<a href="@Hyperlink" class="button hyperlink">
-    
     <span class="label">@ButtonText</span>
+    <img src=@ButtonIconPath alt="logo" />
 </a>
 
 @code {
@@ -8,6 +8,7 @@
     public required string Hyperlink { get; set; }
     [Parameter]
     public required string ButtonText { get; set; }
-    //[Parameter] TODO
-    //public string image { get; set; }
+    [Parameter]
+    public required string ButtonIconPath { get; set; }
+    //svgs are supported in the image tag https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-7.0#scalable-vector-graphics-svg-images
 }

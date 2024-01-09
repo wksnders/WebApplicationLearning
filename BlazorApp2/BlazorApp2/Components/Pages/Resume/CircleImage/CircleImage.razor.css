@@ -12,6 +12,7 @@
 }
 
 .frame {
+    max-width: 13.5rem;
     display: inline-block;
     border-radius: 100%;
     transition: none;
