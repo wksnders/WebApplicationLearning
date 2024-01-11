@@ -1,0 +1,67 @@
+﻿body {
+    margin: 0px;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.plx-image1 {
+    background-image: url(images/GamesProjects/FalterBanner.png);
+    text-align: center;
+    width: 100%;
+    height: 800px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.plx-image2 {
+    background-image: url(images/GamesProjects/FalterBanner.png);
+    text-align: center;
+    width: 100%;
+    height: 800px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.content-1 {
+    height: auto;
+    width: 100%;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.text3 {
+    font-family: Arial, sans-serif;
+    font-size: 80px;
+    background-color: #f2f2f2;
+    padding-top: 50px;
+}
+
+.text4 {
+    width: 70%;
+    margin-left: 15%;
+    padding: 30px 0 80px 0;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    background-color: #f2f2f2;
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+}
+
+
+.content-2 {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.text5 {
+    font-family: Arial, sans-serif;
+    font-size: 100px;
+    padding: 80px 0 80px 0;
+    letter-spacing: 0.2em;
+}
