@@ -1,0 +1,10 @@
+﻿
+:root {
+    --my-width: 100px;
+}
+
+.example {
+    background-color: #ccc;
+    width: var(--my-width);
+}
+
