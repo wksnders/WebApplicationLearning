@@ -1,9 +1,10 @@
-﻿<div class="wrapper">
+﻿@page "/BindCSSExample"
+<div class="wrapper">
     <h1>bindCSSVariableToCSharp</h1>
     <label>Width</label>
     <input @bind-value="@width" />
     <p class="example" style="--my-width: @width">My Width is @width</p>
-<div/>
+</div>
 
 @code {
     string width = "100px";
