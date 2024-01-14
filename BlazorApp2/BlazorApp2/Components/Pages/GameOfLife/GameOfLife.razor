@@ -1,0 +1,42 @@
+﻿@page "/gameoflife"
+@using BlazorApp2.Models
+@if (game is null)
+{
+    <p><em>loading ...</em></p>
+}
+else
+{
+    @for (int x = 1; x < game.Rows; x++)
+    {
+        <div class="row flex-nowrap gameoflife-container">
+        @for (int y = 1; y < game.Columns; y++)
+            {
+                bool cell = game.Grid[x, y];
+
+                if (cell)
+                {
+                <div class="gameoflife-cell
+                            gameoflife-alivecell"
+                     @onclick="(() => game.ToggleStatus(x,y))"></div>
+                }
+                else
+                {
+                    <div class="gameoflife-cell 
+                                gameoflife-deadcell"
+                     @onclick="(() => game.ToggleStatus(x,y))"></div>
+                }
+            }
+        </div>
+    }
+}
+
+@code {
+    private GameOfLifeModel? game;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        game = new GameOfLifeModel(20,20);
+    }
+}
