@@ -1,0 +1,15 @@
+﻿.footerSection {
+    height: 100%;
+    display: flex;
+}
+
+.Name {
+    width: 33%;
+}
+
+.Navigation {
+}
+
+.ContactMe {
+    background-color: green;
+}
