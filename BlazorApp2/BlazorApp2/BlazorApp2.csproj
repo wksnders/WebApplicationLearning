@@ -11,4 +11,10 @@
     <Folder Include="wwwroot\Images\GamesProjects\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Blazorise.Bootstrap" Version="1.4.0" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.4.0" />
+    <PackageReference Include="Blazorise.LottieAnimation" Version="1.4.0" />
+  </ItemGroup>
+
 </Project>
