@@ -1,0 +1,26 @@
+﻿@using BlazorApp2.Components.Pages.Projects.ReusableElements
+@using BlazorApp2.Models;
+
+
+@if (SkillList is null)
+{
+    <p><em>loading ...</em></p>
+}
+else
+{
+    <p>
+        @foreach(Skill skill in SkillList)
+        {
+            <SkillItem isfirst=@isFirst SkillEntry=@skill></SkillItem>
+            isFirst = false;
+        }
+    </p>
+}
+
+@code {
+
+    [Parameter]
+    public required List<Skill> SkillList { get; set; }
+
+    private bool isFirst = true;
+}
