@@ -11,7 +11,7 @@ else
     <p>
         @foreach(Skill skill in SkillList)
         {
-            <SkillItem isfirst=@isFirst SkillEntry=@skill></SkillItem>
+            <ProjectSkill isfirst=@isFirst SkillEntry=@skill></ProjectSkill>
             isFirst = false;
         }
     </p>
