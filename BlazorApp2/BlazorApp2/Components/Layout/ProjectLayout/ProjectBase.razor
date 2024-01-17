@@ -1,0 +1,26 @@
+﻿<section>
+    <div>
+        @Title
+    </div>
+    <div>
+        @Skills
+    </div>
+    <div>
+        @Brief
+    </div>
+    <div>
+        @DescriptionContent
+    </div>
+</section>
+
+@code {
+    [Parameter]
+    public RenderFragment? Title { get; set; }
+    [Parameter]
+    public RenderFragment? Skills { get; set; }
+    [Parameter]
+    public RenderFragment? Brief { get; set; }
+    [Parameter]
+    public RenderFragment? DescriptionContent { get; set; }
+
+}
