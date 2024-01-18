@@ -1,0 +1,41 @@
+﻿@using Components.Layout;
+@using BlazorApp2.Components.Pages.Projects.ReusableElements;
+@using BlazorApp2.Components.Layout.ProjectLayout;
+@using BlazorApp2.Models
+
+<div class="ProjectPage">
+    <FeaturedProjectsSection>
+
+    </FeaturedProjectsSection>
+    <main>
+        <ProjectBase>
+            <Title>
+                <ProjectTitle Title=@title></ProjectTitle>
+            </Title>
+            <Skills>
+                <SkillsDisplay SkillList=@SkillList></SkillsDisplay>
+            </Skills>
+            <Brief>
+                this is a brief note about what the project is about, yes i said about twice there and im
+                just really typing this to have a few words to display on screen for the test project.
+            </Brief>
+            <DescriptionContent>
+                <BlazorApp2.Components.Pages.Projects._3WayMerge></BlazorApp2.Components.Pages.Projects._3WayMerge>
+            </DescriptionContent>
+            <ProjectPageLinkButton>
+
+                <button class="btn btn-primary">Click me</button>
+            </ProjectPageLinkButton>
+        </ProjectBase>
+    </main>
+</div>
+
+
+@code {
+    List<Skill> SkillList = new List<Skill>
+    {
+        Skill.Cplusplus,Skill.Lua,Skill.AgileDevelopment
+    };
+
+    private string title = "Tester Project";
+}
