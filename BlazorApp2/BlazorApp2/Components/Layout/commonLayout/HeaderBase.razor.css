@@ -23,29 +23,9 @@
     background-color: green;
 }
 
-.top-row {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-}
-
-
-/* Page content */
-.content {
-    padding: 16px;
-}
-
-/* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {
-    position: fixed;
+    position: -webkit-sticky;
+    position: sticky;
     top: 0;
-    width: 100%
+    z-index: 10000;
 }
-
-    /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-    .sticky + .content {
-        padding-top: 102px;
-    }

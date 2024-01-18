@@ -1,5 +1,17 @@
-﻿<h3>PageLayout</h3>
+﻿@using BlazorApp2.Components.Layout.commonLayout
+
+<HeaderBase>
+    <Left>
+        <h1>Wyatt Sanders</h1>
+    </Left>
+    <Right>
+
+    </Right>
+</HeaderBase>
+@Body
+<Footer/>
 
 @code {
-
+    [Parameter]
+    public RenderFragment? Body { get; set; }
 }

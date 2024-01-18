@@ -2,25 +2,15 @@
 @using BlazorApp2.Components.Layout.commonLayout
 
 <div class="page">
-    <!--
-    <div class="sidebar">
-        <NavMenu />
+    <div>
+        <img src="images/Mountain.png" class="background">
+        <img src="images/Trees.png" class="foreground">
     </div>
-    -->
-
-    <main>
-        <HeaderBase>
-            <Left>
-                <h1>Wyatt Sanders</h1>
-            </Left>
-            <Right>
-
-            </Right>
-        </HeaderBase>
-        <article class="content px-4">
+    <PageLayout>
+        <Body>
             @Body
-        </article>
-    </main>
+        </Body>
+    </PageLayout>
 </div>
 
 <Error />
