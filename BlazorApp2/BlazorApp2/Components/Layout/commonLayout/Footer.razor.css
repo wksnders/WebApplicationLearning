@@ -16,6 +16,10 @@
 .footerSection {
     height: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
 .Name {
@@ -23,15 +27,7 @@
 }
 
 .Navigation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .ContactMe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 }
