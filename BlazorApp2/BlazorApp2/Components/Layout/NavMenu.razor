@@ -1,10 +1,10 @@
 ﻿
 
 <div class="navHeader">
-    <input type="checkbox" title="Navigation menu left" class="navbar-toggler" />
+    <button @onclick="toggleExpandNav" class=" navbar-toggler" />
     <h1>@PageTitle</h1>
 </div>
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+<div class="nav-scrollable" style="display:@expandNav;">
     <nav class="flex-column">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
@@ -28,6 +28,13 @@
 
 @code {
     [Parameter]
-    public string PageTitle { get; set; }
-    
+    public required string PageTitle { get; set; }
+
+    private string expandNav = "none";
+
+    private void toggleExpandNav()
+    {
+        expandNav = expandNav.Equals("none") ? "block" : "none";
+        StateHasChanged();
+    }
 }
