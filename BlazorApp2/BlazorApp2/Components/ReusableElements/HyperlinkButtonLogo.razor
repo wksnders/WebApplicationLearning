@@ -1,9 +1,14 @@
 ﻿<a href="@Hyperlink" class="button hyperlink">
-    <span class="label">@ButtonText</span>
+    @if(ShowText)
+    {
+        <span class="label">@ButtonText</span>
+    }
     <img src=@ButtonIconPath alt="logo" />
 </a>
 
 @code {
+    [Parameter]
+    public bool ShowText { get; set; } = true;
     [Parameter]
     public required string Hyperlink { get; set; }
     [Parameter]
