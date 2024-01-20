@@ -17,11 +17,13 @@
 }
 
 .Left {
-
+    justify-content: space-between;
+    gap: 1em;
 }
 
 .Right {
-
+    justify-content: right;
+    gap: 1em;
 }
 
 .sticky {

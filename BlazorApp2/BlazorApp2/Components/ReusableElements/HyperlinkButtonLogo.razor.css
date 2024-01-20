@@ -22,6 +22,12 @@ img {
     transition: fill 0.25s ease;
     box-sizing: border-box;
 }
+    img:only-child {
+        height: 1.5rem;
+        width: 1.5rem;
+        min-height: 16px;
+        margin: 0.5rem;
+    }
 
 a {
     display: inline-flex;
@@ -47,7 +53,7 @@ a {
     max-width: 100%;
     width: auto;
     line-height: 2.75rem;
-    padding: 0 1.375rem;
+    padding: 0 var(--my-padding);
 
     font-family: Arial, sans-serif;
     font-size: 1em;

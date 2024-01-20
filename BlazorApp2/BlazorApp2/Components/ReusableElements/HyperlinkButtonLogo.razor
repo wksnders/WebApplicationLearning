@@ -1,4 +1,6 @@
-﻿<a href="@Hyperlink" class="button hyperlink">
+﻿
+
+<a href="@Hyperlink" class="button hyperlink" style="--my-padding:@padding">
     @if(ShowText)
     {
         <span class="label">@ButtonText</span>
@@ -9,6 +11,11 @@
 @code {
     [Parameter]
     public bool ShowText { get; set; } = true;
+    private string padding { get
+        {
+            return ShowText ? "1.375rem" : "0";
+        } 
+    }
     [Parameter]
     public required string Hyperlink { get; set; }
     [Parameter]
