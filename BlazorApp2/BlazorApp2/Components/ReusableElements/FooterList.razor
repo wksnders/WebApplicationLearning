@@ -1,15 +1,17 @@
 ﻿<section>
-    @if (ListItems is null)
+    @if (ListItemsToLinks is null)
     {
         <p><em>loading ...</em></p>
     }
     else
     {
         <ul>
-            @foreach (string item in ListItems)
+            @foreach (KeyValuePair<string,string> item in ListItemsToLinks)
             {
                 <li>
-                    @item
+                    <NavLink class="nav-link" href="@item.Value" Match="NavLinkMatch.All">
+                        @item.Key
+                    </NavLink>
                 </li>
             }
         </ul>
@@ -18,7 +20,7 @@
 
 @code {
     [Parameter]
-    public required List<string> ListItems { get; set; }
+    public required Dictionary<string, string> ListItemsToLinks { get; set; }
 
 }
 

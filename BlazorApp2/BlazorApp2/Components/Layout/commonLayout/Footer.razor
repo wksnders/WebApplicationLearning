@@ -5,7 +5,7 @@
     <div class="footerSection Name">
         <h1>
             Wyatt Sanders
-            <div class="footer-dividing-line"></div>
+            <span class="footer-dividing-line"></span>
         </h1>
     </div>
     <div class="footerSection ResumeFooterSection">
@@ -16,11 +16,11 @@
     </div>
     <div class="footerSection ProjectNavigation">
         <h4>Projects</h4>
-        <FooterList ListItems=@projects/>
+        <FooterList ListItemsToLinks=@projects/>
     </div>
     <div class="footerSection GamesNavigation">
         <h4>Web Games</h4>
-        <FooterList ListItems=@games/>
+        <FooterList ListItemsToLinks=@games/>
     </div>
     <div class="footerSection ContactMe">
         <h4>Contact Me</h4>
@@ -31,8 +31,8 @@
 </footer>
 
 @code {
-    private List<string>? games;
-    private List<string>? projects;
+    private Dictionary<string, string>? games;
+    private Dictionary<string, string>? projects;
     protected override void OnInitialized()
     {
         base.OnInitialized();

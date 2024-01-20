@@ -2,28 +2,28 @@
 {
     public static class NavigationLists
     {
-        private static List<string> projects = new List<string>() { "project1","project2","project3"};
-        private static List<string> games = new List<string>() { "game1", "game2", "game3" };
+        private static Dictionary<string, string> projects = new Dictionary<string, string>();
+        private static Dictionary<string, string> games = new Dictionary<string, string>();
 
-        public static List<string> GetGames()
+        public static Dictionary<string, string> GetGames()
         {
             if (games.Count == 0)
             {//add test data
                 for (int i = 0; i < 4; i++)
                 {
-                    games.Add("game "+i);
+                    games.Add("game "+i,"");
                 }
             }
 
             return games;
         }
-        public static List<string> GetProjects()
+        public static Dictionary<string, string> GetProjects()
         {
             if (projects.Count == 0)
             {//add test data
                 for (int i = 0; i < 4; i++)
                 {
-                    projects.Add("project " + i);
+                    projects.Add("project " + i, "");
                 }
             }
 
