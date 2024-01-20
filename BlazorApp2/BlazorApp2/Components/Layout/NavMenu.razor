@@ -1,7 +1,9 @@
 ﻿
 
 <div class="navHeader">
-    <button @onclick="toggleExpandNav" class=" navbar-toggler" />
+    <div class="my-nav-toggle-backgground" style="background:@backgroundColor;">
+        <input @onclick="toggleExpandNav" class=" my-navbar-toggler" />
+    </div>
     <h1>@PageTitle</h1>
 </div>
 <div class="nav-scrollable" style="display:@expandNav;">
@@ -31,10 +33,13 @@
     public required string PageTitle { get; set; }
 
     private string expandNav = "none";
+    private string backgroundColor = "transparent";
 
     private void toggleExpandNav()
     {
-        expandNav = expandNav.Equals("none") ? "block" : "none";
+        expandNav = expandNav.Equals("none") ? "block" : "none"; 
+
+        backgroundColor = expandNav.Equals("none") ? "transparent" : "#666";
         StateHasChanged();
     }
 }
