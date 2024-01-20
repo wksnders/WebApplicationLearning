@@ -1,4 +1,5 @@
 ﻿@using BlazorApp2.Components.ReusableElements
+@using BlazorApp2.Models
 
 <footer>
     <div class="footerSection Name">
@@ -15,16 +16,52 @@
     </div>
     <div class="footerSection ProjectNavigation">
         <h4>Projects</h4>
+        <FooterList>
+            @if (projects is null)
+            {
+                <p><em>loading ...</em></p>
+            }
+            else
+            {
+                @foreach (string project in projects)
+                {
+                    @project
+                }
+            }
+        </FooterList>
     </div>
     <div class="footerSection GamesNavigation">
         <h4>Web Games</h4>
+        <FooterList>
+            @if (games is null)
+            {
+                <p><em>loading ...</em></p>
+            }
+            else
+            {
+                @foreach (string game in games)
+                {
+                    @game
+                }
+            }
+        </FooterList>
     </div>
     <div class="footerSection ContactMe">
         <h4>Contact Me</h4>
-        <ContactButtons></ContactButtons>
+        <ContactButtons>
+
+        </ContactButtons>
     </div>
 </footer>
 
 @code {
+    private List<string>? games;
+    private List<string>? projects;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
 
+        games = NavigationLists.GetGames();
+        projects = NavigationLists.GetProjects();
+    }
 }
