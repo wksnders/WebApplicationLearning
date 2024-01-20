@@ -16,35 +16,11 @@
     </div>
     <div class="footerSection ProjectNavigation">
         <h4>Projects</h4>
-        <FooterList>
-            @if (projects is null)
-            {
-                <p><em>loading ...</em></p>
-            }
-            else
-            {
-                @foreach (string project in projects)
-                {
-                    @project
-                }
-            }
-        </FooterList>
+        <FooterList ListItems=@projects/>
     </div>
     <div class="footerSection GamesNavigation">
         <h4>Web Games</h4>
-        <FooterList>
-            @if (games is null)
-            {
-                <p><em>loading ...</em></p>
-            }
-            else
-            {
-                @foreach (string game in games)
-                {
-                    @game
-                }
-            }
-        </FooterList>
+        <FooterList ListItems=@games/>
     </div>
     <div class="footerSection ContactMe">
         <h4>Contact Me</h4>

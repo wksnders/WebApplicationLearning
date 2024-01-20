@@ -1,16 +1,29 @@
 ﻿<section>
-    <ul>
-        @foreach (RenderFragment item in ListItems)
-        {
-            <li>
-                @item
-            </li>    
-        }
-    </ul>
+    @if (ListItems is null)
+    {
+        <p><em>loading ...</em></p>
+    }
+    else
+    {
+        <ul>
+            @foreach (string item in ListItems)
+            {
+                <li>
+                    @item
+                </li>
+            }
+        </ul>
+    }
 </section>
 
 @code {
     [Parameter]
-    public required List<RenderFragment> ListItems { get; set; }
+    public required List<string> ListItems { get; set; }
 
+}
+
+    @foreach (string project in projects)
+{
+    @project
+}
 }
