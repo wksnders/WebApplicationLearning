@@ -16,6 +16,7 @@ section {
     background-color: #fff;
     margin-top: 0;
     margin: 2em auto;
+    max-width:100%;
 }
 
 .brief {

@@ -6,10 +6,10 @@
     else
     {
         <ul>
-            @foreach (KeyValuePair<string,string> item in ListItemsToLinks)
+            @foreach (KeyValuePair<string, string> item in ListItemsToLinks)
             {
-                <li>
-                    <NavLink class="nav-link" href="@item.Value" Match="NavLinkMatch.All">
+                <li class="nav-item">
+                    <NavLink class="nav-link-footer" href="@item.Value" Match="NavLinkMatch.All">
                         @item.Key
                     </NavLink>
                 </li>
@@ -24,4 +24,3 @@
 
 }
 
-    

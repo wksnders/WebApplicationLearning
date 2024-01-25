@@ -52,7 +52,7 @@ namespace BlazorApp2.Models
         ProblemSolving,
         React
     }
-    public class SkillModel
+    public static class SkillModel
     {
         //maybe map to logos in future?
         public static Dictionary<Skill, String> SkillsToDisplayString = new Dictionary<Skill, string> {
@@ -103,6 +103,25 @@ namespace BlazorApp2.Models
             { Skill.MicrosoftExcel, "Microsoft Excel"},
             { Skill.ProblemSolving, "Problem Solving"},
             { Skill.React, "React"}
+        };
+
+        public static Dictionary<string, List<Skill>> skillsByCategory = new Dictionary<string, List<Skill>>
+        {
+            { "Programming Languages", new List<Skill> { Skill.CSharp, Skill.Lua, Skill.Java, Skill.Cplusplus, 
+                Skill.VBA, Skill.MIPS, Skill.Python, Skill.CSS, Skill.C } },
+            { "Game Development", new List<Skill> { Skill.Unity, Skill.GameDesign, Skill.MobileGames, 
+                Skill.GameDevelopment, Skill.CasualGames, Skill.Modding } },
+            { "Development Tools", new List<Skill> { Skill.DevelopmentTools, Skill.Gitlab, Skill.Firebase, 
+                Skill.DebuggingCode, Skill.FullStackDevelopment, Skill.MicrosoftExchange, Skill.React, Skill.dotNetFramework } },
+            { "Software Engineering Practices", new List<Skill> { Skill.NetworkEngineering, Skill.SoftwareTesting, 
+                Skill.TestDrivenDevelopment, Skill.AgileDevelopment, Skill.SolutionArchitecture, Skill.DataStructures, 
+                Skill.AsymtoticNotation, Skill.Algorithms } },
+            { "Project Management and Planning", new List<Skill> { Skill.Communication, Skill.ProblemSolving, 
+                Skill.CollabrativeProblemSolving, Skill.ProjectPlanning, Skill.Teamwork, Skill.Leadership, 
+                Skill.ProcessImprovement } },
+            { "Data Skills", new List<Skill> { Skill.MySQL, Skill.LINQ, Skill.DataAnalysis, Skill.XML, Skill.Json } },
+            { "Miscellaneous", new List<Skill> { Skill.None, Skill.CustomerService,  Skill.MicrosoftOffice, 
+                Skill.MicrosoftExcel } }
         };
 
         public static string GetDisplayStringForSkill( Skill skill){
