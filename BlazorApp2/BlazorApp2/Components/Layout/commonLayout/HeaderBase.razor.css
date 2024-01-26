@@ -27,6 +27,7 @@
 }
 
 .sticky {
+    margin-top: -1px;
     position: -webkit-sticky;
     position: sticky;
     top: 0;

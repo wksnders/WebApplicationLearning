@@ -1,4 +1,67 @@
 ﻿
+* {
+    text-align: center;
+}
+
+h1 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0em;
+    margin-inline-end: 0em;
+    font-weight: bold;
+}
+.about-me-heading-main {
+    display: block;
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    letter-spacing: 3px;
+    margin-bottom: 3.5rem;
+    position: relative;
+    color: #111;
+}
+
+.about-me-heading-main::after {
+    content: '';
+    position: absolute;
+    top: calc(100% + 1.5rem);
+    height: 5px;
+    width: 3rem;
+    background: blue;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+p {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #666;
+    max-width: 60rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+p a {
+    text-decoration: underline;
+    font-weight: 700;
+    color: #0a66c2;
+    margin: 0 3px;
+}
+
+
+
+h3 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 .about-me-content {
     margin-left: 0;
     margin-right: 0;
@@ -6,6 +69,8 @@
 }
 
 .skill-column {
+    align-items:center;
+    justify-content: center;
     margin: 0;
     border: 0;
     display: block;
