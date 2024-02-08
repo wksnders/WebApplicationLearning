@@ -16,7 +16,7 @@ namespace BlazorApp2.Models
         Json,
         TestDrivenDevelopment,
         AgileDevelopment,
-        Gitlab,
+        Git,
         NetworkEngineering,
         Firebase,
         SolutionArchitecture,
@@ -50,7 +50,8 @@ namespace BlazorApp2.Models
         MicrosoftOffice,
         MicrosoftExcel,
         ProblemSolving,
-        React
+        React,
+        Blazor
     }
     public static class SkillModel
     {
@@ -68,7 +69,7 @@ namespace BlazorApp2.Models
             { Skill.Json, "JSON"},
             { Skill.TestDrivenDevelopment, "Test Driven Development"},
             { Skill.AgileDevelopment, "Agile Development"},
-            { Skill.Gitlab, "Gitlab"},
+            { Skill.Git, "Git"},
             { Skill.NetworkEngineering, "Network Engineering"},
             { Skill.Firebase, "Firebase"},
             { Skill.SolutionArchitecture, "Solution Architecture"},
@@ -102,26 +103,23 @@ namespace BlazorApp2.Models
             { Skill.MicrosoftOffice, "Microsoft Office"},
             { Skill.MicrosoftExcel, "Microsoft Excel"},
             { Skill.ProblemSolving, "Problem Solving"},
-            { Skill.React, "React"}
+            { Skill.React, "React"},
+            { Skill.Blazor, "Blazor"}
         };
 
-        public static Dictionary<string, List<Skill>> skillsByCategory = new Dictionary<string, List<Skill>>
+        public static Dictionary<string, List<Skill>> SkillsByCategory = new Dictionary<string, List<Skill>>
         {
-            { "Programming Languages", new List<Skill> { Skill.CSharp, Skill.Lua, Skill.Java, Skill.Cplusplus, 
-                Skill.VBA, Skill.MIPS, Skill.Python, Skill.CSS, Skill.C } },
+            { "Programming Languages And Tools", new List<Skill> { Skill.CSharp, Skill.Lua, Skill.Java, Skill.Cplusplus, 
+                Skill.VBA, Skill.MIPS, Skill.Python, Skill.CSS, Skill.C,Skill.MySQL, Skill.LINQ, Skill.XML, Skill.Json, 
+                Skill.Git, Skill.Firebase, Skill.React, Skill.dotNetFramework, Skill.MicrosoftExchange } },
             { "Game Development", new List<Skill> { Skill.Unity, Skill.GameDesign, Skill.MobileGames, 
                 Skill.GameDevelopment, Skill.CasualGames, Skill.Modding } },
-            { "Development Tools", new List<Skill> { Skill.DevelopmentTools, Skill.Gitlab, Skill.Firebase, 
-                Skill.DebuggingCode, Skill.FullStackDevelopment, Skill.MicrosoftExchange, Skill.React, Skill.dotNetFramework } },
-            { "Software Engineering Practices", new List<Skill> { Skill.NetworkEngineering, Skill.SoftwareTesting, 
+            { "Software Engineering Practices", new List<Skill> { Skill.DataAnalysis,Skill.NetworkEngineering, Skill.SoftwareTesting, 
                 Skill.TestDrivenDevelopment, Skill.AgileDevelopment, Skill.SolutionArchitecture, Skill.DataStructures, 
-                Skill.AsymtoticNotation, Skill.Algorithms } },
+                Skill.AsymtoticNotation, Skill.Algorithms,Skill.DevelopmentTools,Skill.DebuggingCode } },
             { "Project Management and Planning", new List<Skill> { Skill.Communication, Skill.ProblemSolving, 
                 Skill.CollabrativeProblemSolving, Skill.ProjectPlanning, Skill.Teamwork, Skill.Leadership, 
                 Skill.ProcessImprovement } },
-            { "Data Skills", new List<Skill> { Skill.MySQL, Skill.LINQ, Skill.DataAnalysis, Skill.XML, Skill.Json } },
-            { "Miscellaneous", new List<Skill> { Skill.None, Skill.CustomerService,  Skill.MicrosoftOffice, 
-                Skill.MicrosoftExcel } }
         };
 
         public static string GetDisplayStringForSkill( Skill skill){

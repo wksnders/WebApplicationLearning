@@ -11,6 +11,10 @@ else
     <p>
         @foreach(Skill skill in SkillList)
         {
+            @if (skill == Skill.None)
+            {
+                continue;
+            }
             <ProjectSkill isfirst=@isFirst SkillEntry=@skill></ProjectSkill>
             isFirst = false;
         }

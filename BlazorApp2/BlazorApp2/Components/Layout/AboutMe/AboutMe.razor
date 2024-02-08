@@ -1,4 +1,6 @@
-﻿@using BlazorApp2.Components.ReusableElements
+﻿
+@using BlazorApp2.Components.ReusableElements
+@using BlazorApp2.Models;
 <section>
     <h1>
         <span class="about-me-heading-main">About Me</span>
@@ -20,19 +22,31 @@
             </p>
         </div>
         <div class="skill-column">
-            <CircleImage ImageSource="svgs/terminal.svg" AltDisplayText="Programmer Icon" />
+            <img src="svgs/terminal.svg" alt="Programmer Icon" />
             <h3>Full Stack Developer</h3>
             <p>this is some place holder text :)</p>
+            <h4>Skills</h4>
+            <SelectableSkills SkillList="@SkillListProgramming" />
         </div>
         <div class="skill-column">
-            <CircleImage ImageSource="svgs/game-development-icon.svg" AltDisplayText="Game Developer Icon" />
+            <img src="svgs/game-development-icon.svg" alt="Game Developer Icon" />
             <h3>Game Designer</h3>
             <p>this is some place holder text :)</p>
+            <h4>Skills</h4>
+            <SelectableSkills SkillList="@SkillListGames"/>
         </div>
     </div>
 </section>
 
 
 @code {
+    List<Skill>? SkillListGames, SkillListProgramming;
 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        SkillListGames = SkillModel.SkillsByCategory["Software Engineering Practices"];
+        SkillListProgramming = SkillModel.SkillsByCategory["Software Engineering Practices"];
+    }
 }

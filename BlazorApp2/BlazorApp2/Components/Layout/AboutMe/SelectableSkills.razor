@@ -1,17 +1,30 @@
 ﻿@using BlazorApp2.Models
 <h3>SelectableSkills</h3>
 
-<menu>
-    @foreach (KeyValuePair<Skill,string> skill in SkillModel.SkillsToDisplayString)
-    {
-        @if (skill.Key == Skill.None)
-        {
-            continue;    
-        }
 
+<menu>
+    @if (SkillList is null)
+    {
+        <p><em>loading ...</em></p>
+    }
+    else
+    {
+        @foreach(Skill skill in SkillList)
+        {
+            @if (skill == Skill.None)
+            {
+                continue;
+            }
+            <div>
+                @SkillModel.GetDisplayStringForSkill(skill)
+            </div>
+        }
     }
 </menu>
 
 @code {
-    
+
+    [Parameter]
+    public required List<Skill> SkillList { get; set; }
+
 }
