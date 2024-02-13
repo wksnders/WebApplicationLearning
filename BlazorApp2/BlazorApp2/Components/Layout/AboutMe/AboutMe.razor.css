@@ -1,6 +1,12 @@
 ﻿
 * {
     text-align: center;
+    z-index: 1;
+}
+
+section {
+    padding-top: 1rem;
+    background: #fff;
 }
 
 img {

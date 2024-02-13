@@ -1,5 +1,12 @@
 ﻿
 
+
+
 .page {
-    width:100%;
+    margin: 0px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+    perspective: 10px;
 }
