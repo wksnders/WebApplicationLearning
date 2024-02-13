@@ -20,6 +20,10 @@
     gap: 1em;
 }
 
+.Middle {
+    display:none;
+}
+
 .Right {
     display: none;
     justify-content: right;
@@ -35,15 +39,31 @@
 }
 
 @media screen and (min-width: 600px) {
-    .Right {
-        display: flex
-    }
     .Left {
         width: 50%
+    }
+    .Right {
+        display: flex
     }
     .header {
         display: flex;
         justify-content: flex-end;
         align-items: center;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .Left {
+        width: 40%;
+    }
+
+    .Middle {
+        display: flex;
+        width: 40%;
+    }
+
+    .Right {
+        width: 20%;
+        display: flex;
     }
 }
