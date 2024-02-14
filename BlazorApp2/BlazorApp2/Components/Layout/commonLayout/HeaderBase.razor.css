@@ -20,9 +20,6 @@
     gap: 1em;
 }
 
-.Middle {
-    display:none;
-}
 
 .Right {
     display: none;
@@ -39,9 +36,9 @@
 }
 
 ul {
+    display:none;
     padding: 0;
     margin: 0;
-    display: flex;
     width:100%;
     height: 100%;
     align-items: center;
@@ -52,19 +49,28 @@ ul {
 li {
     list-style: none;
     display: list-item;
+    min-height: 20px;
 }
 
-.header-nav-link {
-    padding: 2.2rem 3rem;
-    display: inline-block;
-    font-size: 1.6rem;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    transition: color .3s;
-    text-decoration: none;
+li ::deep a.active {
+    color: white;
 }
+
+li ::deep .header-nav-link:hover {
+    color: white;
+}
+
+    li ::deep .header-nav-link {
+        padding: 1rem;
+        display: inline-block;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        transition: color .3s;
+        text-decoration: none;
+        white-space: nowrap;
+    }
 
 @media screen and (min-width: 600px) {
     .Left {
@@ -84,14 +90,12 @@ li {
     .Left {
         width: 40%;
     }
-
-    .Middle {
-        display: flex;
-        width: 40%;
+    ul {
+        display:flex;
     }
 
     .Right {
-        width: 20%;
+        width: 60%;
         display: flex;
     }
 }
