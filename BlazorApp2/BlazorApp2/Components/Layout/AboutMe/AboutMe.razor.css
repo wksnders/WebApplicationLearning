@@ -95,6 +95,12 @@ h3 {
     border-right: 0px solid #E6ECF8;
 }
 
+.double-wide {
+    flex-basis: 1;
+    flex-grow: 2;
+}
+
+
 @media screen and (min-width: 900px) 
 {
     .about-me-content {

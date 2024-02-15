@@ -7,6 +7,7 @@ namespace BlazorApp2.Models
         None = 0,
         CSharp,
         Unity,
+        Unreal,
         Lua,
         DevelopmentTools,
         SoftwareTesting,
@@ -22,6 +23,7 @@ namespace BlazorApp2.Models
         SolutionArchitecture,
         GameDevelopment,
         CSS,
+        Html,
         DebuggingCode,
         Communication,
         CollabrativeProblemSolving,
@@ -60,6 +62,7 @@ namespace BlazorApp2.Models
             { Skill.None, "Error skill is none"},
             { Skill.CSharp, "C#"},
             { Skill.Unity, "Unity"},
+            { Skill.Unreal, "Unreal"},
             { Skill.Lua, "Lua"},
             { Skill.DevelopmentTools, "Development Tools"},
             { Skill.SoftwareTesting, "Software Testing"},
@@ -75,6 +78,7 @@ namespace BlazorApp2.Models
             { Skill.SolutionArchitecture, "Solution Architecture"},
             { Skill.GameDevelopment, "Game Development"},
             { Skill.CSS, "CSS"},
+            { Skill.Html, "HTML"},
             { Skill.DebuggingCode, "Debugging Code"},
             { Skill.Communication, "Communication"},
             { Skill.CollabrativeProblemSolving, "Collaborative Problem Solving"},
@@ -94,7 +98,7 @@ namespace BlazorApp2.Models
             { Skill.AsymtoticNotation, "Asymptotic Notation"},
             { Skill.Algorithms, "Algorithms"},
             { Skill.C, "C"},
-            { Skill.dotNetFramework, ".NET Framework"},
+            { Skill.dotNetFramework, ".NET"},
             { Skill.MySQL, "MySQL"},
             { Skill.LINQ, "LINQ"},
             { Skill.Modding, "Modding"},
@@ -106,13 +110,36 @@ namespace BlazorApp2.Models
             { Skill.React, "React"},
             { Skill.Blazor, "Blazor"}
         };
+        public static Dictionary<Skill, String> SkillsToDisplayImg = new Dictionary<Skill, string> {
+            { Skill.None, "Error skill is none"},
+            { Skill.CSharp, "SVGs/Languages/csharp.svg"},
+            { Skill.Unity, "SVGs/Languages/Unity.svg"},
+            { Skill.Unreal, "SVGs/Languages/Unreal.svg"},
+            { Skill.Lua, "SVGs/Languages/lua.svg"},
+            { Skill.XML, "SVGs/Languages/XML.svg"},
+            { Skill.Json, "SVGs/Languages/Json.svg"},
+            { Skill.Git, "SVGs/Languages/Git.svg"},
+            { Skill.Firebase, "SVGs/Languages/Firebase.svg"},
+            { Skill.CSS, "SVGs/Languages/css.svg"},
+            { Skill.Html, "SVGs/Languages/html.svg"},
+            { Skill.Java, "SVGs/Languages/java.svg"},
+            { Skill.Cplusplus, "SVGs/Languages/cpp.svg"},
+            { Skill.VBA, "SVGs/Languages/VBA.svg"},
+            { Skill.Python, "SVGs/Languages/python.svg"},
+            { Skill.C, "SVGs/Languages/c.svg"},
+            { Skill.dotNetFramework, "SVGs/Languages/dotNetFramework.svg"},
+            { Skill.MySQL, "SVGs/Languages/MySQL.svg"},
+            { Skill.LINQ, "SVGs/Languages/LINQ.svg"},
+            { Skill.React, "SVGs/Languages/React.svg"},
+            { Skill.Blazor, "SVGs/Languages/Blazor.svg"}
+        };
 
         public static Dictionary<string, List<Skill>> SkillsByCategory = new Dictionary<string, List<Skill>>
         {
-            { "Programming Languages And Tools", new List<Skill> { Skill.CSharp, Skill.Lua, Skill.Java, Skill.Cplusplus, 
-                Skill.VBA, Skill.MIPS, Skill.Python, Skill.CSS, Skill.C,Skill.MySQL, Skill.LINQ, Skill.XML, Skill.Json, 
-                Skill.Git, Skill.Firebase, Skill.React, Skill.dotNetFramework, Skill.MicrosoftExchange } },
-            { "Game Development", new List<Skill> { Skill.Unity, Skill.GameDesign, Skill.MobileGames, 
+            { "Programming Languages And Tools", new List<Skill> { Skill.CSharp, Skill.Unity, Skill.Cplusplus,Skill.Unreal,
+                Skill.Python, Skill.Lua, Skill.Java, Skill.CSS,Skill.Html, Skill.C,Skill.MySQL, Skill.dotNetFramework, 
+                Skill.LINQ, Skill.XML, Skill.Json, Skill.Git, Skill.Firebase, Skill.React,Skill.Blazor, Skill.VBA } },
+            { "Game Development", new List<Skill> { Skill.GameDesign, Skill.MobileGames, 
                 Skill.GameDevelopment, Skill.CasualGames, Skill.Modding } },
             { "Software Engineering Practices", new List<Skill> { Skill.DataAnalysis,Skill.NetworkEngineering, Skill.SoftwareTesting, 
                 Skill.TestDrivenDevelopment, Skill.AgileDevelopment, Skill.SolutionArchitecture, Skill.DataStructures, 
@@ -128,6 +155,17 @@ namespace BlazorApp2.Models
                 return "Error skill not found";
             }
             return SkillsToDisplayString[skill];
+        }
+
+        public static bool TryGetDisplayImgForSkill(Skill skill, out string ImgPath)
+        {
+            ImgPath = "Error skill not found";
+            if (!SkillsToDisplayImg.ContainsKey(skill))
+            {
+                return false;
+            }
+            ImgPath = SkillsToDisplayImg[skill];
+            return true;
         }
     }
 }

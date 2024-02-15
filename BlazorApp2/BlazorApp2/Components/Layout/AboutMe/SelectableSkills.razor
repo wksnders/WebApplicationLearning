@@ -1,4 +1,5 @@
-﻿@using BlazorApp2.Models
+﻿@using BlazorApp2.Components.ReusableElements
+@using BlazorApp2.Models
 
 
 <menu>
@@ -14,9 +15,17 @@
             {
                 continue;
             }
-            <div>
-                @SkillModel.GetDisplayStringForSkill(skill)
-            </div>
+
+            @if (@SkillModel.TryGetDisplayImgForSkill(skill, out ImgPath))
+            {
+                <SkillWithImg SkillIconPath=@ImgPath SkillText=@SkillModel.GetDisplayStringForSkill(skill) />
+            }
+            else
+            {
+                <div>
+                    @SkillModel.GetDisplayStringForSkill(skill)
+                </div>
+            }
         }
     }
 </menu>
@@ -25,5 +34,5 @@
 
     [Parameter]
     public required List<Skill> SkillList { get; set; }
-
+    string ImgPath;
 }
