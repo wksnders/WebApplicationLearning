@@ -23,19 +23,18 @@
                 to stay updated. I'm actively seeking <strong>job opportunities</strong> where I can contribute, learn, and grow. If you have such an opportunity, feel free to reach out — I'd love to have a chat!
             </p>
         </div>
-        <div class="skill-column">
+        <div class="skill-column double-wide">
             <img src="svgs/terminal.svg" alt="Programmer Icon" />
-            <h3>Full Stack Developer</h3>
-            <h4>Skills</h4>
+            <h4>Languages and Tools</h4>
             <SelectableSkills SkillList="@SkillListProgramming" />
         </div>
-        <div class="skill-column">
+        <!--<div class="skill-column">
             <img src="svgs/game-development-icon.svg" alt="Game Developer Icon" />
             <h3>Game Designer</h3>
             <h4>Skills</h4>
             <p>click on a skill to see projects where i used that skill :) </p>
-            <SelectableSkills SkillList="@SkillListGames"/>
-        </div>
+            <SelectableSkills SkillList="@SkillListGames" />
+        </div>-->
     </div>
 </section>
 
@@ -48,6 +47,6 @@
         base.OnInitialized();
 
         SkillListGames = SkillModel.SkillsByCategory["Software Engineering Practices"];
-        SkillListProgramming = SkillModel.SkillsByCategory["Software Engineering Practices"];
+        SkillListProgramming = SkillModel.SkillsByCategory["Programming Languages And Tools"];
     }
 }
