@@ -1,0 +1,35 @@
+﻿@using BlazorApp2.Models;
+
+@if (testimonials is null)
+{
+    <p><em>loading ...</em></p>
+}
+else
+{
+    <h2>Kind words from co-workers</h2>
+    <div class="testimonial-content">
+        <p class="testimonial-quote">
+            @testimonials[index].Quote
+        </p>
+
+        <h3>@testimonials[index].Name</h3>
+        <h4>@testimonials[index].PositionAndCompany</h4>
+        @if (testimonials[index].OnLinkedIn)
+        {
+            <p class="small-text">see the full review on my<a rel="noreferrer" href="https://www.linkedin.com/in/wyatt-sanders/" target="_blank"> LinkedIn </a></p>
+        }
+    </div>
+}
+@code {
+
+    int index = 0;
+
+    private List<Testimonial>? testimonials;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        testimonials = Testimonials.GetTestimonialList(); ;
+    }
+}

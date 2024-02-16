@@ -74,6 +74,10 @@ h3 {
     margin-bottom: 1em;
 }
 
+h4 {
+    font-weight: 500;
+}
+
 .about-me-content {
     margin-left: 0;
     margin-right: 0;
