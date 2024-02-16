@@ -1,5 +1,5 @@
 ﻿@using BlazorApp2.Models
-@implements IDisposable
+@rendermode InteractiveServer
 
 <h1>Counter</h1>
 
@@ -17,7 +17,7 @@
         gameModel.EnqueuePlayerAction(
             new ActionWithCost{
                 cost = 0,
-                action =gameModel.PlayerClicked
+                action = gameModel.PlayerClicked
             });
     }
 
@@ -25,18 +25,13 @@
 
     private void LateUpdate()
     {
-        StateHasChanged();
+        InvokeAsync(StateHasChanged);
     }
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
         gameModel.lateUpdateActions.Add(LateUpdate);
-    }
-
-    void IDisposable.Dispose()
-    {
-        gameModel.lateUpdateActions.Remove(LateUpdate);
     }
     #endregion
 }

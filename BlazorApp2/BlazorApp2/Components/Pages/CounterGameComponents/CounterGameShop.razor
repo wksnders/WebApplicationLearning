@@ -1,5 +1,5 @@
 ﻿@using BlazorApp2.Models
-@implements IDisposable
+@rendermode InteractiveServer
 
 <button class="btn btn-primary" @onclick="IncreasePlayerClickValueBtn">Increase Click Value</button>
 <button class="btn btn-primary" @onclick="AddAutoClickerBtn">Buy AutoClicker</button>
@@ -63,7 +63,7 @@
 
     private void LateUpdate()
     {
-        StateHasChanged();
+        InvokeAsync(StateHasChanged);
     }
 
     protected override void OnInitialized()
@@ -72,9 +72,5 @@
         gameModel.lateUpdateActions.Add(LateUpdate);
     }
 
-    void IDisposable.Dispose()
-    {
-        gameModel.lateUpdateActions.Remove(LateUpdate);
-    }
     #endregion
 }

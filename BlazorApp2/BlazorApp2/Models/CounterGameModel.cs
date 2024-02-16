@@ -6,9 +6,10 @@
         public Action action;
     }
 
-    public struct CounterItem {
+    public struct CounterAutoClickerItem {
         public double autoClickerValue;
-        public string IconPath;
+        public string IconPathEnabled;
+        public string IconPathDisabled;
     }
     public class CounterGameModel
     {
@@ -22,6 +23,16 @@
         }
         private static CounterGameModel? inst;
 
+        private static readonly Dictionary<CounterItemType, CounterAutoClickerItem> AutoClickerItems = new Dictionary<CounterItemType, CounterAutoClickerItem>
+        {
+            {  CounterItemType.AutoClicker, 
+                new CounterAutoClickerItem{ 
+                    autoClickerValue = 0.01,
+                    IconPathEnabled = "ClickerGameComponents/AutoClickerIconClick.svg",
+                    IconPathDisabled = "ClickerGameComponents/AutoClickerIconWait.svg"
+                } 
+            }
+        };
 
         double gameTickSpeed = 100000; //time between frames in microseconds
 
@@ -33,6 +44,7 @@
         }
         public double currentCount = 0;
         public double PlayerClickValue { get; set; } = 1;
+        public double PlayerClickValueIncreaseAmount { get; set; } = 1;
         public double autoIncrementAmount { get; set; } = 0;
         PeriodicTimer gameLoopTimer;
 
@@ -59,8 +71,22 @@
             currentCount += PlayerClickValue;
         }
 
-        public void PlayerGotItem(CounterItemType type) { 
-            
+        public void PlayerGotItem(CounterItemType type) {
+            if (type == CounterItemType.None) {
+                return;
+            }
+            //TODO notify view that player got Item
+
+            if (type == CounterItemType.IncreasePlayerClickValue) {
+                PlayerClickValue += PlayerClickValueIncreaseAmount;
+                return;
+            }
+
+            if (AutoClickerItems.ContainsKey(type))
+            {
+                autoIncrementAmount += AutoClickerItems[type].autoClickerValue;
+                return;
+            }
         }
 
         public void EnqueuePlayerAction(ActionWithCost action) {
@@ -69,7 +95,7 @@
 
         private bool TryMakePurchaseWithCost(double Cost)
         {
-            Cost = Math.Floor(Cost);
+            //Cost = Math.Floor(Cost);
             if (currentCount < Cost)
             {
                 return false;
@@ -84,6 +110,7 @@
             {
                 await timer.WaitForNextTickAsync();
                 Update();
+
                 LateUpdate();
             }
         }
@@ -100,14 +127,14 @@
                 }
             }
 
-
             currentCount += autoIncrementAmount;
 
         }
 
         private void LateUpdate()
         {
-            foreach (Action action in lateUpdateActions) { 
+            foreach (Action action in lateUpdateActions)
+            {
                 action?.Invoke();
             }
         }
