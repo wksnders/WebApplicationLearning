@@ -1,16 +1,19 @@
 ﻿@using BlazorApp2.Models
 @rendermode InteractiveServer
-<section>
-    <h1>Counter</h1>
 
-    <p role="status">Current count: @gameModel.DisplayCount</p>
+<div class="counter-game">
+    <section>
+        <h1>Counter</h1>
 
-    <button class="btn btn-primary" @onclick="IncrementCountBtn">Click me</button>
+        <p role="status">Current count: @gameModel.DisplayCount</p>
 
-</section>
-<section>
-    <CounterGameShop />
-</section>
+        <button class="btn btn-primary" @onclick="IncrementCountBtn">Click me</button>
+
+    </section>
+    <section>
+        <CounterGameShop />
+    </section>
+</div>
 
 @code {
 
@@ -19,10 +22,11 @@
     private void IncrementCountBtn()
     {
         gameModel.EnqueuePlayerAction(
-            new ActionWithCost{
-                cost = 0,
-                action = gameModel.PlayerClicked
-            });
+            new ActionWithCost
+                {
+                    cost = 0,
+                    action = gameModel.PlayerClicked
+                });
     }
 
     #region viewUpdate

@@ -165,7 +165,6 @@
     public class CounterShopItem
     {
         public string? Name;
-        public bool IsLocked;
         public double Cost;
         public double CostIncreaseFactor;
     }
@@ -187,19 +186,17 @@
         public bool TryBuyShopItem(Action<CounterItemType> playerGotItem,CounterItemType type,out ActionWithCost action) 
         {
             CounterShopItem item;
-            if (!shopItems.TryGetValue(type,out item) || item.IsLocked) {
+            if (!shopItems.TryGetValue(type,out item)) {
                 action = new ActionWithCost{ };
                 return false;
             }
             
-            item.IsLocked = true;
             action = new ActionWithCost
             {
                 cost = item.Cost,
                 action = () => {
                     playerGotItem(type);
-                    item.Cost = item.Cost * item.CostIncreaseFactor;
-                    item.IsLocked = false;
+                    item.Cost *= item.CostIncreaseFactor;
                 }
             };
             return true;
