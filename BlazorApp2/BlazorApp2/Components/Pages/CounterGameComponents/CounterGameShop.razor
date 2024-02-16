@@ -1,8 +1,20 @@
 ﻿@using BlazorApp2.Models
 @rendermode InteractiveServer
 
-<button class="btn btn-primary" @onclick="IncreasePlayerClickValueBtn">Increase Click Value</button>
-<button class="btn btn-primary" @onclick="AddAutoClickerBtn">Buy AutoClicker</button>
+<menu>
+    @foreach (KeyValuePair<CounterItemType, CounterShopItem> shopDisplayItem in shopModel.shopItems)
+    {
+        <button @onclick="@(()=>BuyItem(shopDisplayItem.Key) )">
+            <div>
+                <img src=@gameModel.GetItemIcons(shopDisplayItem.Key).IconPathEnabled />
+                <div class="text-container">
+                    <p class="item-name">@shopDisplayItem.Value.Name</p>
+                    <p class="item-cost">cost: @CostToDisplayCost(shopDisplayItem.Value.Cost)</p>
+                </div>
+            </div>
+        </button>
+    }
+</menu>
 
 @code {
     private static readonly Dictionary<CounterItemType, CounterShopItem> initialShopItems = new Dictionary<CounterItemType, CounterShopItem>
@@ -12,16 +24,16 @@
             {
                 Name = "Increase Click Value",
                 IsLocked = false,
-                Cost = 5,
-                CostIncreaseFactor = 1.25
-            } 
+                Cost = 100,
+                CostIncreaseFactor = 1.5
+            }
         },
         {CounterItemType.AutoClicker,
             new CounterShopItem
             {
                 Name = "Buy Auto Clicker",
                 IsLocked = false,
-                Cost = 5,
+                Cost = 15,
                 CostIncreaseFactor = 1.2
             }
         }

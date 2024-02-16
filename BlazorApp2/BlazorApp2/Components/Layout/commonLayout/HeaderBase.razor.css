@@ -63,7 +63,7 @@ li ::deep .header-nav-link:hover {
     li ::deep .header-nav-link {
         padding: 1rem;
         display: inline-block;
-        color: #333;
+        color: #fff;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;

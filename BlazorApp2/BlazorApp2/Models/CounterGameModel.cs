@@ -8,6 +8,9 @@
 
     public struct CounterAutoClickerItem {
         public double autoClickerValue;
+    }
+    public struct CounterItemIcons
+    {
         public string IconPathEnabled;
         public string IconPathDisabled;
     }
@@ -25,14 +28,30 @@
 
         private static readonly Dictionary<CounterItemType, CounterAutoClickerItem> AutoClickerItems = new Dictionary<CounterItemType, CounterAutoClickerItem>
         {
-            {  CounterItemType.AutoClicker, 
-                new CounterAutoClickerItem{ 
-                    autoClickerValue = 0.01,
-                    IconPathEnabled = "ClickerGameComponents/AutoClickerIconClick.svg",
-                    IconPathDisabled = "ClickerGameComponents/AutoClickerIconWait.svg"
-                } 
+            {  CounterItemType.AutoClicker,
+                new CounterAutoClickerItem{
+                    autoClickerValue = 0.01
+                }
             }
         };
+
+        private static readonly Dictionary<CounterItemType, CounterItemIcons> ItemIcons = new Dictionary<CounterItemType, CounterItemIcons>
+        {
+            {  CounterItemType.IncreasePlayerClickValue,
+                new CounterItemIcons{
+                    IconPathEnabled = "ClickerGameComponents/IncreasePlayerClickValue.svg",
+                    IconPathDisabled = "ClickerGameComponents/IncreasePlayerClickValue.svg"
+                }
+            },
+            {  CounterItemType.AutoClicker,
+                new CounterItemIcons{
+                    IconPathEnabled = "ClickerGameComponents/AutoClickerIconClick.svg",
+                    IconPathDisabled = "ClickerGameComponents/AutoClickerIconWait.svg"
+                }
+            }
+        };
+                  
+
 
         double gameTickSpeed = 100000; //time between frames in microseconds
 
@@ -139,11 +158,13 @@
             }
         }
 
-
+        public CounterItemIcons GetItemIcons(CounterItemType type) {
+            return ItemIcons[type];
+        }
     }
-    public struct CounterShopItem
+    public class CounterShopItem
     {
-        public string Name;
+        public string? Name;
         public bool IsLocked;
         public double Cost;
         public double CostIncreaseFactor;
