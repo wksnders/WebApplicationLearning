@@ -1,0 +1,20 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+@using BlazorApp2.Models
+
+<PageTitle>Counter Game</PageTitle>
+
+<CounterGameView/>
+
+@code {
+
+    CounterGameModel gameModel = CounterGameModel.Instance;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        gameModel.StartGame();
+    }
+}
+

@@ -1,5 +1,80 @@
-﻿<h3>Component</h3>
+﻿@using BlazorApp2.Models
+@implements IDisposable
+
+<button class="btn btn-primary" @onclick="IncreasePlayerClickValueBtn">Increase Click Value</button>
+<button class="btn btn-primary" @onclick="AddAutoClickerBtn">Buy AutoClicker</button>
 
 @code {
+    private static readonly Dictionary<CounterItemType, CounterShopItem> initialShopItems = new Dictionary<CounterItemType, CounterShopItem>
+    {
+        {CounterItemType.IncreasePlayerClickValue,
+            new CounterShopItem
+            {
+                Name = "Increase Click Value",
+                IsLocked = false,
+                Cost = 5,
+                CostIncreaseFactor = 1.25
+            } 
+        },
+        {CounterItemType.AutoClicker,
+            new CounterShopItem
+            {
+                Name = "Buy Auto Clicker",
+                IsLocked = false,
+                Cost = 5,
+                CostIncreaseFactor = 1.2
+            }
+        }
+    };
 
+    CounterGameModel gameModel = CounterGameModel.Instance;
+    CounterGameShopModel shopModel = new CounterGameShopModel(initialShopItems);
+
+    #region buttons
+    private void IncreasePlayerClickValueBtn()
+    {
+        BuyItem(CounterItemType.IncreasePlayerClickValue);
+    }
+
+    private void AddAutoClickerBtn()
+    {
+        BuyItem(CounterItemType.AutoClicker);
+    }
+    #endregion
+
+
+
+    private void BuyItem(CounterItemType type)
+    {
+        ActionWithCost playerAction;
+        if (!shopModel.TryBuyShopItem(gameModel.PlayerGotItem, type, out playerAction))
+        {
+            Console.WriteLine("Error Purchased Item Not Found, with type : " + type);
+            return;
+        }
+        gameModel.EnqueuePlayerAction(playerAction);
+    }
+
+    #region viewUpdate
+    private int CostToDisplayCost(double cost)
+    {
+        return (int)(Math.Floor(cost));
+    }
+
+    private void LateUpdate()
+    {
+        StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        gameModel.lateUpdateActions.Add(LateUpdate);
+    }
+
+    void IDisposable.Dispose()
+    {
+        gameModel.lateUpdateActions.Remove(LateUpdate);
+    }
+    #endregion
 }
