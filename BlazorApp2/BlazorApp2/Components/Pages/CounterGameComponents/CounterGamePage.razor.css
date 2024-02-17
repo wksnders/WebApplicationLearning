@@ -1,0 +1,16 @@
+﻿header {
+    background-image: linear-gradient(to bottom right, cornflowerblue, lightskyblue);
+    min-height: 20vh;
+    display:flex;
+    justify-content:center;
+    justify-items:center;
+    align-items:center;
+}
+
+h1 {
+    font-weight: 700;
+    text-align: center;
+    padding: 1rem;
+    vertical-align: middle;
+    text-shadow: 0 0 5px white;
+}

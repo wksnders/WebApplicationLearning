@@ -2,6 +2,7 @@
     display: flex;
     padding: 2%;
 }
+
 section {
     flex: 1 1 0;
     display: flex;
@@ -10,4 +11,30 @@ section {
 
 button {
     max-width: 250px;
+}
+
+p {
+}
+
+.item-row {
+    min-height: 24px;
+    border-bottom: 6px groove LightSlateGray;
+    overscroll-behavior-x: contain;
+}
+
+    .item-row:last-child {
+        border-bottom: none;
+    }
+
+div .items {
+    margin-top: 3rem;
+    border: 6px groove LightSlateGray;
+    background-color: lavender;
+}
+
+h3 {
+    min-height: 24px;
+    padding-left: 1rem;
+    background-color: aliceblue;
+    border-bottom: 6px groove LightSlateGray;
 }

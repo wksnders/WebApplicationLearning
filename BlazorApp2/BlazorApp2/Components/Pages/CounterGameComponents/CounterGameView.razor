@@ -3,12 +3,38 @@
 
 <div class="counter-game">
     <section>
-        <h1>Counter</h1>
 
-        <p role="status">Current count: @gameModel.DisplayCount</p>
+        <h2 role="status">Current count: @gameModel.DisplayCount</h2>
 
         <button class="btn btn-primary" @onclick="IncrementCountBtn">Click me</button>
 
+        <div class="items">
+            <h3>Items</h3>
+            @foreach (KeyValuePair<CounterItemType,OwnedItemsProperties> item in OwnedItems)
+            {
+                <div class="item-row">
+                    @for (int i = 0; i < item.Value.count; i++)
+                    {
+                        @if (CounterGameModel.ItemIcons[item.Key].activeOnceEveryXSeconds <= 0)
+                        {
+                            <img class="item-disabled" src=@CounterGameModel.ItemIcons[item.Key].IconPathDisabled />
+                        }
+                        else if (i % CounterGameModel.ItemIcons[item.Key].activeOnceEveryXSeconds == item.Value.currentActive)
+                        {
+                            <img class="item-enabled" src=@CounterGameModel.ItemIcons[item.Key].IconPathEnabled />
+                        }
+                        else
+                        {
+                            <img class="item-disabled" src=@CounterGameModel.ItemIcons[item.Key].IconPathDisabled />
+                        }
+                    }
+                </div>
+            }
+            @if (OwnedItems.Keys.Count == 0)
+            {
+                <div class="item-row"></div>
+            }
+        </div>
     </section>
     <section>
         <CounterGameShop />
@@ -16,8 +42,14 @@
 </div>
 
 @code {
-
+    int timer = 0;
     CounterGameModel gameModel = CounterGameModel.Instance;
+    private class OwnedItemsProperties
+    {
+        public int count;
+        public int currentActive;
+    }
+    private Dictionary<CounterItemType, OwnedItemsProperties> OwnedItems = new Dictionary<CounterItemType, OwnedItemsProperties>();
 
     private void IncrementCountBtn()
     {
@@ -33,13 +65,44 @@
 
     private void LateUpdate()
     {
+        timer++;
+        if (timer >= 10)
+        {
+            timer -= 10;
+            InvokeAsync(UpdateActive);
+        }
         InvokeAsync(StateHasChanged);
+    }
+
+    private void UpdateActive()
+    {
+        foreach (KeyValuePair<CounterItemType, OwnedItemsProperties> item in OwnedItems)
+        {
+            if (CounterGameModel.ItemIcons[item.Key].activeOnceEveryXSeconds <= 0)
+            {
+                continue;    
+            }
+            item.Value.currentActive++;
+            item.Value.currentActive = item.Value.currentActive % CounterGameModel.ItemIcons[item.Key].activeOnceEveryXSeconds;
+        }
     }
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
         gameModel.lateUpdateActions.Add(LateUpdate);
+        gameModel.gotItemActions.Add(AddOwnedItem);
+    }
+
+    private void AddOwnedItem(CounterItemType type)
+    {
+        if (!OwnedItems.ContainsKey(type))
+        {
+            OwnedItems.Add(type, new OwnedItemsProperties { count = 1,currentActive = 1});
+            return;
+        }
+
+        OwnedItems[type].count++;
     }
     #endregion
 }

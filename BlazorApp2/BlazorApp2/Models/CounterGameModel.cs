@@ -13,6 +13,7 @@
     {
         public string IconPathEnabled;
         public string IconPathDisabled;
+        public int activeOnceEveryXSeconds;
     }
     public class CounterGameModel
     {
@@ -35,18 +36,21 @@
             }
         };
 
-        private static readonly Dictionary<CounterItemType, CounterItemIcons> ItemIcons = new Dictionary<CounterItemType, CounterItemIcons>
+        public static readonly Dictionary<CounterItemType, CounterItemIcons> ItemIcons = new Dictionary<CounterItemType, CounterItemIcons>
         {
             {  CounterItemType.IncreasePlayerClickValue,
                 new CounterItemIcons{
+
                     IconPathEnabled = "ClickerGameComponents/IncreasePlayerClickValue.svg",
-                    IconPathDisabled = "ClickerGameComponents/IncreasePlayerClickValue.svg"
+                    IconPathDisabled = "ClickerGameComponents/IncreasePlayerClickValue.svg",
+                    activeOnceEveryXSeconds = 0
                 }
             },
             {  CounterItemType.AutoClicker,
                 new CounterItemIcons{
                     IconPathEnabled = "ClickerGameComponents/AutoClickerIconClick.svg",
-                    IconPathDisabled = "ClickerGameComponents/AutoClickerIconWait.svg"
+                    IconPathDisabled = "ClickerGameComponents/AutoClickerIconWait.svg",
+                    activeOnceEveryXSeconds = 10
                 }
             }
         };
@@ -69,6 +73,7 @@
 
         Queue<ActionWithCost> playerInputs = new Queue<ActionWithCost>();
         public List<Action> lateUpdateActions = new List<Action>();
+        public List<Action<CounterItemType>> gotItemActions = new List<Action<CounterItemType>>();
 
         public CounterGameModel()
         {
@@ -95,6 +100,9 @@
                 return;
             }
             //TODO notify view that player got Item
+            foreach (Action<CounterItemType> action in gotItemActions) { 
+                action?.Invoke(type);
+            }
 
             if (type == CounterItemType.IncreasePlayerClickValue) {
                 PlayerClickValue += PlayerClickValueIncreaseAmount;
