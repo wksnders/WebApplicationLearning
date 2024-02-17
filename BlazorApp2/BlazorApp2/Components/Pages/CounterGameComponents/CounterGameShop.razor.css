@@ -5,6 +5,11 @@
     flex-direction:column;
 }
 
+h2 {
+    width:100%;
+    text-align:center;
+}
+
 button {
     width: 100%;
     min-height: 24px;
