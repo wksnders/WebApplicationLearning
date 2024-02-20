@@ -9,7 +9,7 @@
             @foreach (KeyValuePair<string, string> item in ListItemsToLinks)
             {
                 <li class="nav-item">
-                    <NavLink class="nav-link-footer" href="@item.Value" Match="NavLinkMatch.All">
+                    <NavLink class="nav-link-footer body-text" href="@item.Value" Match="NavLinkMatch.All">
                         @item.Key
                     </NavLink>
                 </li>

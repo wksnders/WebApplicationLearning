@@ -17,12 +17,10 @@ img {
 
 h1 {
     display: block;
-    font-size: 1.5em;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0em;
     margin-inline-end: 0em;
-    font-weight: bold;
 }
 .about-me-heading-main {
     display: block;
@@ -47,22 +45,16 @@ h1 {
     border-radius: 5px;
 }
 
-strong {
-    font-weight: bold;
-}
 
 p {
     text-align: center;
-    font-size: 1.2rem;
     color: #666;
     max-width: 60rem;
-    line-height: 1.7;
     margin-bottom: 1rem;
 }
 
 p a {
     text-decoration: underline;
-    font-weight: 700;
     color: #0a66c2;
     margin: 0 3px;
 }

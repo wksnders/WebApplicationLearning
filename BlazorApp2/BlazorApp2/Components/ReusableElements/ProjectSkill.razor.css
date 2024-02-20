@@ -1,12 +1,10 @@
 ﻿
 
 span {
-    font-size: 1.1em;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     line-height: 1.7em;
     font-family: Arial,sans-serif;
-    font-weight: 300;
     color: #5d5d5d;
 }

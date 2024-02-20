@@ -2,32 +2,32 @@
 @using BlazorApp2.Components.ReusableElements
 @using BlazorApp2.Models;
 <section>
-    <h1>
-        <span class="about-me-heading-main">About Me</span>
+    <h1 class="header-text">
+        <strong><span class="about-me-heading-main">About Me</span></strong>
     </h1>
     <div class="about-me-content">
         <div class="skill-column">
-            <h2>
+            <h2 class="weight-mid subheader-text">
                 Hi, I'm Wyatt!
             </h2>
 
             <CircleImage ImageSource="images/WyattHeadshot.jpg" AltDisplayText="Wyatt Sanders's Profile Photo" />
-            <p>
+            <p class="body-text">
                 I'm a <strong>Full Stack Developer and Game Designer</strong>, I craft engaging experiences and applications
                 to address contemporary challenges.
                 Explore my projects in the <strong>Projects</strong> section or by selecting a specific <strong>skill set</strong>.
             </p>
-            <p>
+            <p class="body-text">
                 Connect with me on
-                <a rel="noreferrer" href="https://www.linkedin.com/in/wyatt-sanders/" target="_blank">LinkedIn</a>
+                <a class="weight-heavy" rel="noreferrer" href="https://www.linkedin.com/in/wyatt-sanders/" target="_blank">LinkedIn</a>
                 to stay updated. I'm actively seeking <strong>job opportunities</strong> where I can contribute, learn, and grow. If you have such an opportunity, feel free to reach out — I'd love to have a chat!
             </p>
         </div>
         <div class="skill-column double-wide">
             <!--<img src="svgs/terminal.svg" alt="Programmer Icon" />-->
-            <h4>Languages and Tools</h4>
+            <h4 class="weight-mid subheader-text">Languages and Tools</h4>
             <SelectableSkills SkillList="@SkillListProgramming" />
-            <h4>Skills</h4>
+            <h4 class="weight-mid subheader-text">Skills</h4>
             <SelectableSkills SkillList="@SkillListGames" />
         </div>
         <!--<div class="skill-column">

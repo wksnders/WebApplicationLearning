@@ -6,19 +6,29 @@
 }
 else
 {
-    <h2>Kind words from co-workers</h2>
+    <h2 class="header-text">Kind words from co-workers</h2>
     <div class="testimonial-content">
         <p class="testimonial-quote">
             @testimonials[index].Quote
         </p>
 
-        <h3>@testimonials[index].Name</h3>
-        <h4>@testimonials[index].PositionAndCompany</h4>
+        <h3 class="weight-heavy subheader-text">@testimonials[index].Name</h3>
+        <h4 class="body-text">@testimonials[index].PositionAndCompany</h4>
         @if (testimonials[index].OnLinkedIn)
         {
-            <p class="small-text">see the full review on my<a rel="noreferrer" href="https://www.linkedin.com/in/wyatt-sanders/" target="_blank"> LinkedIn </a></p>
+            <p class="secondary-text">see the full review on my<a rel="noreferrer" href="https://www.linkedin.com/in/wyatt-sanders/" target="_blank"> LinkedIn </a></p>
         }
     </div>
+    <img class="left"/>
+    for (int i = 0; i < testimonials.Count; i++)
+    {
+        if (i == index)
+        {
+            <div class="circle-filled"></div>
+        }
+        <div class="circle-unfilled"></div>
+    }
+    <img class="right" />
 }
 @code {
 
