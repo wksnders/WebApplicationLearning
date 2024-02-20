@@ -1,4 +1,7 @@
-﻿namespace BlazorApp2.Models
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
+
+namespace BlazorApp2.Models
 {
     public struct ActionWithCost
     {
@@ -75,6 +78,8 @@
         public List<Action> lateUpdateActions = new List<Action>();
         public List<Action<CounterItemType>> gotItemActions = new List<Action<CounterItemType>>();
 
+        public CounterGameOwnedItemsModel Inventory = new CounterGameOwnedItemsModel();
+
         public CounterGameModel()
         {
             gameLoopTimer = new PeriodicTimer(TimeSpan.FromMicroseconds(gameTickSpeed));
@@ -82,12 +87,13 @@
 
         public void StartGame()
         {
+            if (gameIsRunning) {
+                return;
+            }
             gameIsRunning = true;
-            _ = GameLoopAsync(gameLoopTimer);
-        }
 
-        public void PauseUnpause() {
-            gameIsRunning = !gameIsRunning;
+            gotItemActions.Add(Inventory.AddOwnedItem);
+            _ = GameLoopAsync(gameLoopTimer);
         }
 
         public void PlayerClicked()
@@ -156,6 +162,7 @@
 
             currentCount += autoIncrementAmount;
 
+            Inventory.Update();
         }
 
         private void LateUpdate()
@@ -208,6 +215,51 @@
                 }
             };
             return true;
+        }
+    }
+
+    public class OwnedItemsProperties
+    {
+        public int count;
+        public int currentActive;
+    }
+    public class CounterGameOwnedItemsModel
+    {
+
+        int timer = 0;
+        public Dictionary<CounterItemType, OwnedItemsProperties> OwnedItems = new Dictionary<CounterItemType, OwnedItemsProperties>();
+
+
+        public void Update() {
+            timer++;
+            if (timer >= 10)
+            {
+                timer -= 10;
+                UpdateActive();
+            }
+        }
+        private void UpdateActive()
+        {
+            foreach (KeyValuePair<CounterItemType, OwnedItemsProperties> item in OwnedItems)
+            {
+                if (CounterGameModel.ItemIcons[item.Key].activeOnceEveryXSeconds <= 0)
+                {
+                    continue;
+                }
+                item.Value.currentActive++;
+                item.Value.currentActive = item.Value.currentActive % CounterGameModel.ItemIcons[item.Key].activeOnceEveryXSeconds;
+            }
+        }
+
+        public void AddOwnedItem(CounterItemType type)
+        {
+            if (!OwnedItems.ContainsKey(type))
+            {
+                OwnedItems.Add(type, new OwnedItemsProperties { count = 1, currentActive = 1 });
+                return;
+            }
+
+            OwnedItems[type].count++;
         }
     }
 }
