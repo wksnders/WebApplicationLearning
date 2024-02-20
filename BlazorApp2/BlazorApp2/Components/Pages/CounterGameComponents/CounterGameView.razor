@@ -4,12 +4,12 @@
 <div class="counter-game">
     <section>
 
-        <h2 role="status">Current count: @gameModel.DisplayCount</h2>
+        <h2 role="status" class="header-text">Current count: @gameModel.DisplayCount</h2>
 
-        <button class="btn btn-primary" @onclick="IncrementCountBtn">Click me</button>
+        <button class="btn btn-primary subheader-text" @onclick="IncrementCountBtn">Click me</button>
 
         <div class="items">
-            <h3>Items</h3>
+            <h3 class="subheader-text weight-mid">Items</h3>
             @foreach (KeyValuePair<CounterItemType,OwnedItemsProperties> item in OwnedItems)
             {
                 <div class="item-row">

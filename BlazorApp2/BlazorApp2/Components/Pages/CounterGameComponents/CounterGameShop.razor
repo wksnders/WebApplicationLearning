@@ -1,7 +1,7 @@
 ﻿@using BlazorApp2.Models
 @rendermode InteractiveServer
 
-<h2> Shop </h2>
+<h2 class="subheader-text weight-mid"> Shop </h2>
 <menu>
     @foreach (KeyValuePair<CounterItemType, CounterShopItem> shopDisplayItem in shopModel.shopItems)
     {
@@ -9,8 +9,8 @@
             <div>
                 <img src=@gameModel.GetItemIcons(shopDisplayItem.Key).IconPathEnabled />
                 <div class="text-container">
-                    <p class="item-name">@shopDisplayItem.Value.Name</p>
-                    <p class="item-cost">cost: @CostToDisplayCost(shopDisplayItem.Value.Cost)</p>
+                    <p class="item-name subheader-text">@shopDisplayItem.Value.Name</p>
+                    <p class="item-cost body-text">cost: @CostToDisplayCost(shopDisplayItem.Value.Cost)</p>
                 </div>
             </div>
         </button>
