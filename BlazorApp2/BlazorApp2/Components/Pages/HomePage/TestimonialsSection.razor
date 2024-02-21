@@ -1,35 +1,40 @@
 ﻿@using BlazorApp2.Models;
 
-@if (testimonials is null)
-{
-    <p><em>loading ...</em></p>
-}
-else
-{
-    <h2 class="header-text">Kind words from co-workers</h2>
-    <div class="testimonial-content">
-        <p class="testimonial-quote secondary-subheader-text">
-            @testimonials[index].Quote
-        </p>
-
-        <h3 class="weight-heavy subheader-text">@testimonials[index].Name</h3>
-        <h4 class="body-text">@testimonials[index].PositionAndCompany</h4>
-        @if (testimonials[index].OnLinkedIn)
-        {
-            <p class="secondary-text">see the full review on my<a rel="noreferrer" href="https://www.linkedin.com/in/wyatt-sanders/" target="_blank"> LinkedIn </a></p>
-        }
-    </div>
-    <img class="left"/>
-    for (int i = 0; i < testimonials.Count; i++)
+<section>
+    @if (testimonials is null)
     {
-        if (i == index)
-        {
-            <div class="circle-filled"></div>
-        }
-        <div class="circle-unfilled"></div>
+        <p><em>loading ...</em></p>
     }
-    <img class="right" />
-}
+    else
+    {
+        <h2 class="header-text">Kind words from co-workers</h2>
+        <div class="testimonial-content">
+            <p class="testimonial-quote secondary-subheader-text">
+                @testimonials[index].Quote
+            </p>
+
+            <h3 class="weight-heavy subheader-text">@testimonials[index].Name</h3>
+            <h4 class="body-text">@testimonials[index].PositionAndCompany</h4>
+            @if (testimonials[index].OnLinkedIn)
+            {
+                <p class="secondary-text">see the full review on my<a rel="noreferrer" href="https://www.linkedin.com/in/wyatt-sanders/" target="_blank"> LinkedIn </a></p>
+            }
+        </div>
+        <img class="left" />
+        <div class="carosel-page-selector">
+            @for (int i = 0; i < testimonials.Count; i++)
+            {
+                if (i == index)
+                {
+                    <button class="circle-filled"></button>
+                    continue;
+                }
+                <button class="circle-unfilled"></button>
+            }
+        </div>
+        <img class="right" />
+    }
+</section>
 @code {
 
     int index = 0;
