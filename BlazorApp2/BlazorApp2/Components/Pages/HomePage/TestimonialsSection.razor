@@ -24,20 +24,17 @@
         <div class="carosel-page-selector">
             @for (int i = 0; i < testimonials.Count; i++)
             {
-                if (i == index)
-                {
-                    <button class="circle-filled"></button>
-                    continue;
-                }
-                <button class="circle-unfilled"></button>
+                int temp = i;
+                <button class="carosel-dot @(i == index?"carosel-dot-filled":"")" onclick="@(()=>SetCaroselIndex(temp))"></button>
             }
         </div>
         <img class="right" />
     }
 </section>
 @code {
-
+    //TODO section Height
     int index = 0;
+    bool isautoAdvancingCarosel = true;
 
     private List<Testimonial>? testimonials;
 
@@ -46,5 +43,35 @@
         base.OnInitialized();
 
         testimonials = Testimonials.GetTestimonialList(); ;
+    }
+
+    public async Task AutoAdvanceCarosel()
+    {
+        await Task.Delay(2500);
+        while (isautoAdvancingCarosel)
+        {
+            index++;
+            await InvokeAsync(() => this.StateHasChanged());
+            await Task.Delay(2500);
+        }
+    }
+
+    private void SetCaroselIndex(int newIndex)
+    {
+        if (testimonials is null)
+        {
+            return;    
+        }
+        if (newIndex >= testimonials.Count)
+        {
+            newIndex = testimonials.Count - 1;
+        }
+        else if(newIndex < 0)
+        {
+            newIndex = 0;
+        }
+
+        index = newIndex;
+        StateHasChanged();
     }
 }
