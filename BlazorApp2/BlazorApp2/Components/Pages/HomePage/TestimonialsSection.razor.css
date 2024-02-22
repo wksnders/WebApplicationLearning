@@ -5,17 +5,21 @@
 section {
     padding-top: 5rem;
     background-color: #f0f3f4;
+    height: 90vh;
 }
 
 div .testimonial-content {
     margin-bottom: 2rem;
     padding: 0;
     border: 0;
+    height: 55vh;
 }
 
 .testimonial-quote {
     max-width: 700px;
     margin: 0 auto 2.5rem;
+    height: 62.5%;
+    overflow-y:clip;
 }
 
 h2 {
@@ -29,7 +33,7 @@ h3 {
 
 .carosel-page-selector {
     position: relative;
-    top: -52px;
+    bottom: 52px;
     display: flex;
     justify-content: center;
     align-items: center;
