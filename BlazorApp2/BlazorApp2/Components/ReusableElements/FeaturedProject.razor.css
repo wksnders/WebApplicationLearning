@@ -27,7 +27,7 @@ div.project-info {
     z-index: 1;
 }
 
-div.project-container {
+a.project-container {
     height: 100%;
     position: relative;
     overflow-clip-margin: content-box;
