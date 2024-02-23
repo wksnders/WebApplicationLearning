@@ -1,0 +1,40 @@
+﻿
+
+img {
+    height: 100%;
+    transition: none;
+    border: 0;
+    max-width: 100%;
+    vertical-align: middle;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    object-fit:cover;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    img {
+        transition: all .4s ease;
+    }
+        img:hover {
+            transform: scale(1.07)
+        }
+}
+
+div.project-info {
+    bottom: 30px;
+    left: 30px;
+    position: absolute;
+    z-index: 1;
+}
+
+div.project-container {
+    height: 100%;
+    position: relative;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+h2 {
+    color: #fff;
+    margin: 0;
+}
