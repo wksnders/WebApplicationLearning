@@ -1,6 +1,20 @@
-﻿
+﻿div.project-link {
+    color: #fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-img {
+img.featured-project-link {
+    height: 16px;
+    filter: invert(1);
+}
+
+span {
+    padding-right: .25rem;
+}
+
+img.featured-project-img {
     height: 100%;
     transition: none;
     border: 0;
@@ -8,14 +22,14 @@ img {
     vertical-align: middle;
     overflow-clip-margin: content-box;
     overflow: clip;
-    object-fit:cover;
+    object-fit: cover;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    img {
+    img.featured-project-img {
         transition: all .4s ease;
     }
-        img:hover {
+        img.featured-project-img:hover {
             transform: scale(1.07)
         }
 }
@@ -28,6 +42,7 @@ div.project-info {
 }
 
 a.project-container {
+    display: block;
     height: 100%;
     position: relative;
     overflow-clip-margin: content-box;

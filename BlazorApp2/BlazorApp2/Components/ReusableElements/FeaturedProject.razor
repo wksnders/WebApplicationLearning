@@ -1,14 +1,18 @@
 ﻿<a class="project-container" href="">
     <div class="project-info">
-        <h2 class="subheader-text weight-heavy">Title</h2>
-        <span class="body-text">see more</span>
+        <h2 class="subheader-text weight-heavy">@Title</h2>
+        <div class="project-link">
+            <span class="body-text">see more</span>
+            <img src="SVGs/Hyperlink.svg" class="featured-project-link" />
+        </div>
     </div>
-    <img src="Images/FeaturedProjects/Singularity.jpg" />
+    <img src="@ProjectImage" class="featured-project-img" />
 </a>
 
 @code {
 
-
     [Parameter]
     public required string Title { get; set; }
+    [Parameter]
+    public required string ProjectImage { get; set; }
 }
