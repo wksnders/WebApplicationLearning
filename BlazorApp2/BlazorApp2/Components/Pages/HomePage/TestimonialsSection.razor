@@ -34,7 +34,6 @@
 @code {
     //TODO section Height
     int index = 0;
-    bool isautoAdvancingCarosel = true;
 
     private List<Testimonial>? testimonials;
 
@@ -43,17 +42,6 @@
         base.OnInitialized();
 
         testimonials = Testimonials.GetTestimonialList(); ;
-    }
-
-    public async Task AutoAdvanceCarosel()
-    {
-        await Task.Delay(2500);
-        while (isautoAdvancingCarosel)
-        {
-            index++;
-            await InvokeAsync(() => this.StateHasChanged());
-            await Task.Delay(2500);
-        }
     }
 
     private void SetCaroselIndex(int newIndex)

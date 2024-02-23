@@ -1,0 +1,88 @@
+﻿@using BlazorApp2.Models;
+@using BlazorApp2.Components.Layout.ProjectLayout;
+
+<section>
+    @if (testimonials is null)
+    {
+        <p><em>loading ...</em></p>
+    }
+    else
+    {
+        <div class="project-content">
+            <div class="project-column double-wide">
+                <h2 class="subheader-text weight-heavy">My Project</h2>
+                <p class="body-text">
+                    @testimonials[index].Quote
+                </p>
+                <SkillsDisplay SkillList=@SkillList></SkillsDisplay>
+            </div>
+            <div class="project-column wide-screen">
+                @for (int i = 0; i < testimonials.Count; i++)
+                {
+                    int temp = i;
+                    <button class="carosel-dot @(i == index?"carosel-dot-filled":"")" onclick="@(()=>SetCaroselIndex(temp))"></button>
+                }
+            </div>
+        </div>
+        
+        <img class="left" />
+        <div class="carosel-page-selector narrow-screen">
+            @for (int i = 0; i < testimonials.Count; i++)
+            {
+                int temp = i;
+                <button class="carosel-dot @(i == index?"carosel-dot-filled":"")" onclick="@(()=>SetCaroselIndex(temp))"></button>
+            }
+        </div>
+        <img class="right" />
+    }
+</section>
+
+@code {
+    List<Skill> SkillList = new List<Skill>
+    {
+        Skill.Cplusplus,Skill.Lua,Skill.AgileDevelopment
+    };
+
+    //TODO section Height
+    int index = 0;
+    bool isautoAdvancingCarosel = true;
+
+    private List<Testimonial>? testimonials;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        testimonials = Testimonials.GetTestimonialList(); ;
+    }
+
+    public async Task AutoAdvanceCarosel()
+    {
+        await Task.Delay(2500);
+        while (isautoAdvancingCarosel)
+        {
+            index++;
+            await InvokeAsync(() => this.StateHasChanged());
+            await Task.Delay(2500);
+        }
+    }
+
+    private void SetCaroselIndex(int newIndex)
+    {
+        if (testimonials is null)
+        {
+            return;
+        }
+        if (newIndex >= testimonials.Count)
+        {
+            newIndex = testimonials.Count - 1;
+        }
+        else if (newIndex < 0)
+        {
+            newIndex = 0;
+        }
+
+        index = newIndex;
+        StateHasChanged();
+    }
+}
