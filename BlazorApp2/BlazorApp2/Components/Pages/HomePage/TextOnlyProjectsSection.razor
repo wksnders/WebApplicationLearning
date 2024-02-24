@@ -17,11 +17,13 @@
                 <SkillsDisplay SkillList=@SkillList></SkillsDisplay>
             </div>
             <div class="project-column wide-screen">
-                @for (int i = 0; i < testimonials.Count; i++)
-                {
-                    int temp = i;
-                    <button class="carosel-dot @(i == index?"carosel-dot-filled":"")" onclick="@(()=>SetCaroselIndex(temp))"></button>
-                }
+                <menu>
+                    @for (int i = 0; i < testimonials.Count; i++)
+                    {
+                        int temp = i;
+                        <button class="secondary-subheader-text carosel-word @(i == index?"carosel-word-active":"")" onclick="@(()=>SetCaroselIndex(temp))">@testimonials[i].Name</button>
+                    }
+                </menu>
             </div>
         </div>
         

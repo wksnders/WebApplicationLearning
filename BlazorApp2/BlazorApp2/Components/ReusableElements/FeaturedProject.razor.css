@@ -1,4 +1,7 @@
-﻿
+﻿section {
+    padding-top: 5rem;
+    min-height: 90vh;
+}
 
 div.project-link {
     color: #fff;
