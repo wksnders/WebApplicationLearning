@@ -21,8 +21,6 @@
     flex-shrink: 1;
     vertical-align: baseline;
     padding: 50px 30px;
-    border-bottom: 1px solid #E6ECF8;
-    border-right: 0px solid #E6ECF8;
 }
 menu {
     display: flex;
@@ -66,6 +64,29 @@ button.carosel-word-active {
         color: black;
     }
 
+.carosel-page-selector {
+    position: relative;
+    bottom: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px
+}
+
+.carosel-dot {
+    height: 1rem;
+    width: 1rem;
+    background-color: #ccc;
+    border: 0;
+    border-radius: 7px;
+    margin: 8px;
+    padding: 0;
+}
+
+.carosel-dot-filled {
+    background-color: #2d85f3;
+}
+
 .double-wide {
     flex-basis: 1;
     flex-grow: 2;
@@ -95,4 +116,8 @@ button.carosel-word-active {
     .narrow-screen {
         display: none;
     }
-}
+    .project-column {
+        border-bottom: 1px solid #E6ECF8;
+        border-right: 0px solid #E6ECF8;
+    }
+    }

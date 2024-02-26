@@ -1,5 +1,9 @@
 ﻿namespace BlazorApp2.Models
 {
+    public struct TextOnlyProjectData { 
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
     public class ProjectData
     {
         public static readonly Dictionary<string, List<Skill>> projectsToSkills = new Dictionary<string, List<Skill>>
