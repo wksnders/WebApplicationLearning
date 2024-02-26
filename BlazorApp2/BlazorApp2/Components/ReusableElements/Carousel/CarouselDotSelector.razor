@@ -1,13 +1,13 @@
 ﻿
 @using Models.ComponentModels
 
-<div class="carosel-page-selector">
+<menu>
     @for (int i = 0; i < carousel.NumPages; i++)
     {
         int temp = i;
         <button class="carosel-dot @(i == carousel.ActiveIndex?"carosel-dot-filled":"")" onclick="@(()=>carousel.SetCaroselIndex(temp))"></button>
     }
-</div>
+</menu>
 
 @code {
     [Parameter]
