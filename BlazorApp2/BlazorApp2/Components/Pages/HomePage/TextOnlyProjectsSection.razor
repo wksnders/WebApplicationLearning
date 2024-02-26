@@ -1,8 +1,10 @@
-﻿@using BlazorApp2.Models;
+﻿@using BlazorApp2.Components.ReusableElements.Carousel
+@using BlazorApp2.Models;
+@using Models.ComponentModels
 @using BlazorApp2.Components.Layout.ProjectLayout;
 
 <section>
-    @if (testimonials is null)
+    @if (testimonials is null || carouselModel is null)
     {
         <p><em>loading ...</em></p>
     }
@@ -12,28 +14,17 @@
             <div class="project-column double-wide">
                 <h2 class="subheader-text weight-heavy">My Project</h2>
                 <p class="body-text">
-                    @testimonials[index].Quote
+                    @testimonials[carouselModel.ActiveIndex].Quote
                 </p>
                 <SkillsDisplay SkillList=@SkillList></SkillsDisplay>
             </div>
             <div class="project-column wide-screen">
-                <menu>
-                    @for (int i = 0; i < testimonials.Count; i++)
-                    {
-                        int temp = i;
-                        <button class="secondary-subheader-text carosel-word @(i == index?"carosel-word-active":"")" onclick="@(()=>SetCaroselIndex(temp))">@testimonials[i].Name</button>
-                    }
-                </menu>
+                <CarouselTitleSelector PageTitles=@projectTitles carousel=@carouselModel />
             </div>
         </div>
-        
         <img class="left" />
-        <div class="carosel-page-selector narrow-screen">
-            @for (int i = 0; i < testimonials.Count; i++)
-            {
-                int temp = i;
-                <button class="carosel-dot @(i == index?"carosel-dot-filled":"")" onclick="@(()=>SetCaroselIndex(temp))"></button>
-            }
+        <div class="narrow-screen">
+            <CarouselDotSelector carousel=@carouselModel />
         </div>
         <img class="right" />
     }
@@ -46,45 +37,23 @@
     };
 
     //TODO section Height
-    int index = 0;
-    bool isautoAdvancingCarosel = true;
+    Carousel? carouselModel;
 
+    private List<string> projectTitles = new List<string> { "Project 1", "Project 2" };
     private List<Testimonial>? testimonials;
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
-        testimonials = Testimonials.GetTestimonialList(); ;
+        testimonials = Testimonials.GetTestimonialList();
+        carouselModel = new Carousel(testimonials.Count, OnCarouselUpdate);
     }
 
-    public async Task AutoAdvanceCarosel()
+    private void OnCarouselUpdate()
     {
-        await Task.Delay(2500);
-        while (isautoAdvancingCarosel)
-        {
-            index++;
-            await InvokeAsync(() => this.StateHasChanged());
-            await Task.Delay(2500);
-        }
-    }
-
-    private void SetCaroselIndex(int newIndex)
-    {
-        if (testimonials is null)
-        {
-            return;
-        }
-        if (newIndex >= testimonials.Count)
-        {
-            newIndex = testimonials.Count - 1;
-        }
-        else if (newIndex < 0)
-        {
-            newIndex = 0;
-        }
-
-        index = newIndex;
         StateHasChanged();
     }
+
+
 }
