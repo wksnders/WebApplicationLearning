@@ -34,7 +34,7 @@ button.carosel-word-active {
 }
 
 button.carosel-word:hover {
-    padding-left: 20%;
+    padding-left: 25px;
     transform: scale(1.06);
     text-decoration: none;
     outline: 0;
