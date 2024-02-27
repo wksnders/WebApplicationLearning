@@ -8,7 +8,7 @@
     margin-left: 0;
     margin-right: 0;
     justify-content: center;
-    height: 55vh;
+    min-height: 55vh;
 }
 
 .project-column {
