@@ -1,13 +1,21 @@
 ﻿section {
-    padding: 5rem 1.5rem 0 1.5rem;
-    box-sizing: border-box;
+    display:flex;
     width: 100%;
+    background-color: #000;
     justify-content: center;
 }
 
+h3 {
+    color: #fff;
+}
 
-
-
+div.content {
+    width: 100%;
+    padding: 5rem 1.5rem 2rem 1.5rem;
+    max-width: 1200px;
+    justify-content: center;
+    box-sizing: border-box;
+}
 
 .project-column {
     position: relative;
@@ -15,20 +23,27 @@
     justify-content: center;
     margin: 0;
     border: 0;
-    display: block;
+    padding: 0;
+    display: flex;
     flex-basis: 0;
     flex-grow: 1;
     flex-shrink: 1;
     vertical-align: baseline;
-    padding: 50px 30px;
+    flex-direction: column;
+    max-width: 800px;
 }
 
+.project-column *{
+    padding:1.5rem 0 1.5rem;
+}
+
+
+
 @media screen and (min-width: 900px) {
-    section{
+    div.content {
         display: flex;
     }
 
-    .skill-column {
-        padding: 60px 35px;
+    .project-column {
     }
 }
