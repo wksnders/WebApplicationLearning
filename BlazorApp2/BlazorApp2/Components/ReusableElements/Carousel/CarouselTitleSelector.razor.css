@@ -32,7 +32,6 @@ button.carosel-word {
 button.carosel-word:hover {
     text-decoration: none;
     outline: 0;
-    color: black;
 }
 button.carosel-word-active {
     color: orange;
@@ -44,7 +43,7 @@ button.carosel-word-active {
     }
 
     button.carosel-word:hover {
-        padding-left: 25px;
+        padding-left: 2em;
         transform: scale(1.06);
     }
 }
