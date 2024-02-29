@@ -14,3 +14,16 @@
     font-family: montserrat,sans-serif;
     color: #5d5d5d;
 }
+
+span {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.7em;
+    font-family: Arial,sans-serif;
+    color: #5d5d5d;
+}
+
+    span:first-child {
+        display:none;
+    }

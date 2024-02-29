@@ -15,8 +15,9 @@ else
             {
                 continue;
             }
-            <ProjectSkill isfirst=@isFirst SkillEntry=@skill></ProjectSkill>
-            isFirst = false;
+            <span class="body-text weight-light"> | </span>
+            @SkillModel.GetDisplayStringForSkill(skill)
+            
         }
     </p>
 }
@@ -25,6 +26,4 @@ else
 
     [Parameter]
     public required List<Skill> SkillList { get; set; }
-
-    private bool isFirst = true;
 }
