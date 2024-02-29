@@ -28,14 +28,14 @@ button.carosel-word {
         border-bottom: none;
     }
 
-button.carosel-word-active {
-    color: orange;
-}
 
 button.carosel-word:hover {
     text-decoration: none;
     outline: 0;
     color: black;
+}
+button.carosel-word-active {
+    color: orange;
 }
 
 @media(prefers-reduced-motion: no-preference) {
