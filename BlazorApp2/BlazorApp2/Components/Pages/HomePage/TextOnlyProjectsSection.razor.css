@@ -41,7 +41,6 @@
     }
 
     .project-column {
-        border-bottom: 0px solid #E6ECF8;
         border-right: 1px solid #E6ECF8;
         padding: 60px 35px;
     }
@@ -52,8 +51,5 @@
     .narrow-screen {
         display: none;
     }
-    .project-column {
-        border-bottom: 1px solid #E6ECF8;
-        border-right: 0px solid #E6ECF8;
-    }
-    }
+
+}
