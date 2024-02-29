@@ -53,7 +53,6 @@
             { "HackTheU", new TextOnlyProjectData{DisplayName = "Hack The U", Description=  ""  } },
             { "WestonScienceScholars", new TextOnlyProjectData{DisplayName = "Weston Science Scholars", Description=  ""  } },
             { "SingularityTurnTracker", new TextOnlyProjectData{DisplayName = "Singularity Turn Tracker", Description=  ""  } },
-            { "AmoebasAndMore", new TextOnlyProjectData{DisplayName = "Amoebas And More", Description=  ""  } },
             { "GameCraft", new TextOnlyProjectData{DisplayName = "Game Craft", Description=  ""  } },
             { "IDTech", new TextOnlyProjectData{DisplayName = "ID Tech", Description=  ""  } }
         };
