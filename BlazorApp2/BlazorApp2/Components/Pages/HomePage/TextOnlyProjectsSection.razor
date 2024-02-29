@@ -3,7 +3,7 @@
 @using Models.ComponentModels
 @using BlazorApp2.Components.Layout.ProjectLayout;
 
-<section>
+<section style="background-color:@backgroundColor">
     @if (projects is null || carouselModel is null)
     {
         <p><em>loading ...</em></p>
@@ -32,6 +32,8 @@
 
 
 @code {
+    [Parameter]
+    public required string backgroundColor { get; set; }
 
     [Parameter]
     public required List<string> ProjectKeyList { get; set; }
