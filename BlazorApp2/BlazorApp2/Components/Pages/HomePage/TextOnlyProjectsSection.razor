@@ -4,7 +4,7 @@
 @using BlazorApp2.Components.Layout.ProjectLayout;
 
 <section>
-    @if (testimonials is null || carouselModel is null)
+    @if (projects is null || carouselModel is null)
     {
         <p><em>loading ...</em></p>
     }
@@ -12,11 +12,11 @@
     {
         <div class="project-content">
             <div class="project-column double-wide">
-                <h2 class="subheader-text weight-heavy">My Project</h2>
+                <h2 class="subheader-text weight-heavy">@projects[carouselModel.ActiveIndex].DisplayName</h2>
                 <p class="body-text">
-                    @testimonials[carouselModel.ActiveIndex].Quote
+                    @projects[carouselModel.ActiveIndex].Description
                 </p>
-                <SkillsDisplay SkillList=@SkillList></SkillsDisplay>
+                <SkillsDisplay SkillList=@projectSkillLists[carouselModel.ActiveIndex]></SkillsDisplay>
             </div>
             <div class="project-column wide-screen">
                 <CarouselTitleSelector PageTitles=@projectTitles carousel=@carouselModel />
@@ -30,24 +30,48 @@
     }
 </section>
 
-@code {
-    List<Skill> SkillList = new List<Skill>
-    {
-        Skill.Cplusplus,Skill.Lua,Skill.AgileDevelopment
-    };
 
-    //TODO section Height
+@code {
+
+    [Parameter]
+    public required List<string> ProjectKeyList { get; set; }
+
+    List<List<Skill>> projectSkillLists = new List<List<Skill>>();
+
     Carousel? carouselModel;
 
-    private List<string> projectTitles = new List<string> { "Project 1", "Project 2" };
-    private List<Testimonial>? testimonials;
+    private List<string> projectTitles = new List<string>();
+    private List<TextOnlyProjectData> projects = new List<TextOnlyProjectData>();
 
     protected override void OnInitialized()
     {
+        getProjects();
+        carouselModel = new Carousel(projects.Count, OnCarouselUpdate);
         base.OnInitialized();
+    }
 
-        testimonials = Testimonials.GetTestimonialList();
-        carouselModel = new Carousel(testimonials.Count, OnCarouselUpdate);
+    private void getProjects()
+    {
+        foreach (string projectKey in ProjectKeyList)
+        {
+            TextOnlyProjectData temp;
+            if (!ProjectData.textProjectsToDescriptions.TryGetValue(projectKey,out temp))
+            {
+                continue;
+            }
+            projects.Add(temp);
+            projectTitles.Add(temp.DisplayName);
+            List<Skill> projectSkillList;
+            if (!ProjectData.projectsToSkills.ContainsKey(projectKey))
+            {
+                projectSkillList = new List<Skill>();
+            }
+            else
+            {
+                projectSkillList = ProjectData.projectsToSkills[projectKey];
+            }
+            projectSkillLists.Add(projectSkillList);
+        }
     }
 
     private void OnCarouselUpdate()
