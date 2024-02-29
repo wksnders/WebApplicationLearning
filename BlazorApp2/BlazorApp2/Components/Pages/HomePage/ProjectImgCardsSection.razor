@@ -1,9 +1,21 @@
 ﻿
 <section>
-
+    @if (ProjectKeyList is null)
+    {
+        <p><em>loading ...</em></p>
+    }
+    else
+    {
+        foreach (string projectkey in ProjectKeyList)
+        {
+                
+        }
+    }
 
 </section>
 
 @code {
+    [Parameter]
+    public required List<string> ProjectKeyList { get; set; }
 
 }
