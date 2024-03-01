@@ -1,4 +1,6 @@
 ﻿@using BlazorApp2.Components.Layout.ProjectLayout
+@using BlazorApp2.Models;
+
 <div class="project-card">
     <div class="img-container">
         <ImgWithHoverCaption></ImgWithHoverCaption>
@@ -11,5 +13,9 @@
                 
 
 @code {
+    [Parameter]
+    public required string title { get; set; }
+    [Parameter]
+    public required List<Skill> SkillList { get; set; }
 
 }
