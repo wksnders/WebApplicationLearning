@@ -2,18 +2,21 @@
 @using BlazorApp2.Models;
 
 <section>
-    @if (ProjectKeyList is null)
-    {
-        <p><em>loading ...</em></p>
-    }
-    else
-    {
-        foreach (string projectkey in ProjectKeyList)
+    <ul>
+        @if (ProjectKeyList is null)
         {
-            <ProjectImageCard SkillList=SkillList title=title />
+            <p><em>loading ...</em></p>
         }
-    }
-
+        else
+        {
+            foreach (string projectkey in ProjectKeyList)
+            {
+                <li>
+                    <ProjectImageCard SkillList=SkillList title=title />
+                </li>
+            }
+        }
+    </ul>
 </section>
 
 @code {
