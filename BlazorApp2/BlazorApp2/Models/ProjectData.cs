@@ -4,6 +4,13 @@
         public string DisplayName { get; set; }
         public string Description { get; set; }
     }
+
+    public struct ImgProjectData
+    {
+        public string DisplayName { get; set; }
+        public string DisplayImg { get; set; }
+        public string Caption { get; set; }
+    }
     public class ProjectData
     {
 
@@ -26,7 +33,7 @@
             { "GameExecutionFlowchart", new List<Skill> { Skill.GameDevelopment, Skill.GameDesign } },
             { "FalterGame", new List<Skill> { Skill.GameDevelopment, Skill.GameDesign } },
             { "CharacterConcepting", new List<Skill> { Skill.GameDevelopment } },
-            { "PawtectionGame", new List<Skill> { Skill.GameDevelopment, Skill.GameDesign, Skill.Lua, Skill.XML, Skill.CasualGames, Skill.Teamwork, Skill.ProjectPlanning } },
+            { "Pawtection", new List<Skill> { Skill.GameDevelopment, Skill.GameDesign, Skill.Lua, Skill.XML, Skill.CasualGames, Skill.Teamwork, Skill.ProjectPlanning } },
             { "TurnCloakGame", new List<Skill> { Skill.GameDevelopment, Skill.GameDesign, Skill.Cplusplus, Skill.Teamwork } },
             { "SnowyDiorama", new List<Skill> { Skill.GameDevelopment, Skill.Cplusplus } },
             { "SingularityTurnTracker", new List<Skill> { Skill.Lua, Skill.Modding, Skill.XML } },
@@ -37,6 +44,17 @@
         };
 
 
+        public static readonly Dictionary<string, ImgProjectData> ImgProjectsToDescriptions = new Dictionary<string, ImgProjectData>
+        {
+            { "Pawtection", new ImgProjectData{DisplayName = "Pawtection",DisplayImg = "Images/GamesProjects/pawtectionGameBoard.png" , Caption="Jigsaw Your Way Through A Heart-Wrenching Puzzle Game of Limited Space and Moral Dilemmas" } },
+            { "Pawtection2", new ImgProjectData{DisplayName = "Pawtection",DisplayImg = "Images/GamesProjects/pawtectionGameBoard.png" , Caption="Jigsaw Your Way Through A Heart-Wrenching Puzzle Game of Limited Space and Moral Dilemmas" } },
+            { "Pawtection3", new ImgProjectData{DisplayName = "Pawtection",DisplayImg = "Images/GamesProjects/pawtectionGameBoard.png" , Caption="Jigsaw Your Way Through A Heart-Wrenching Puzzle Game of Limited Space and Moral Dilemmas" } },
+            { "Pawtection4", new ImgProjectData{DisplayName = "Pawtection",DisplayImg = "Images/GamesProjects/pawtectionGameBoard.png" , Caption="Jigsaw Your Way Through A Heart-Wrenching Puzzle Game of Limited Space and Moral Dilemmas" } },
+            { "Pawtection5", new ImgProjectData{DisplayName = "Pawtection",DisplayImg = "Images/GamesProjects/pawtectionGameBoard.png" , Caption="Jigsaw Your Way Through A Heart-Wrenching Puzzle Game of Limited Space and Moral Dilemmas" } },
+            { "Pawtection6", new ImgProjectData{DisplayName = "Pawtection",DisplayImg = "Images/GamesProjects/pawtectionGameBoard.png" , Caption="Jigsaw Your Way Through A Heart-Wrenching Puzzle Game of Limited Space and Moral Dilemmas" } },
+            { "Pawtection7", new ImgProjectData{DisplayName = "Pawtection",DisplayImg = "Images/GamesProjects/pawtectionGameBoard.png" , Caption="Jigsaw Your Way Through A Heart-Wrenching Puzzle Game of Limited Space and Moral Dilemmas" } },
+            { "Pawtection8", new ImgProjectData{DisplayName = "Pawtection",DisplayImg = "Images/GamesProjects/pawtectionGameBoard.png" , Caption="Jigsaw Your Way Through A Heart-Wrenching Puzzle Game of Limited Space and Moral Dilemmas" } }
+        };
         public static readonly Dictionary<string, TextOnlyProjectData> textProjectsToDescriptions = new Dictionary<string, TextOnlyProjectData>
         {
             { "3WayMerge", new TextOnlyProjectData{DisplayName = "3-way merge", Description="Delved into sorting algorithms by creating two nonrecursive merge-sort versions and assessing their mean efficiency across numerous isolated tests. Applied the traditional technique of merging two sorted lists, alongside a unique method merging three lists concurrently." } },
@@ -56,7 +74,6 @@
             { "GameCraft", new TextOnlyProjectData{DisplayName = "Game Craft", Description=  ""  } },
             { "IDTech", new TextOnlyProjectData{DisplayName = "ID Tech", Description=  ""  } }
         };
-
     }
 
 

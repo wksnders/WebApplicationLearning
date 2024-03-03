@@ -11,8 +11,13 @@
         {
             foreach (string projectkey in ProjectKeyList)
             {
+                @if (!(ProjectData.projectsToSkills.ContainsKey(projectkey) && ProjectData.ImgProjectsToDescriptions.ContainsKey(projectkey)))
+                {
+                    continue;
+                }
                 <li>
-                    <ProjectImageCard SkillList=SkillList title=title />
+                    <ProjectImageCard SkillList=ProjectData.projectsToSkills[projectkey]
+                                      title=@ProjectData.ImgProjectsToDescriptions[projectkey].DisplayName ImgSource=@ProjectData.ImgProjectsToDescriptions[projectkey].DisplayImg ImgCaption=@ProjectData.ImgProjectsToDescriptions[projectkey].Caption />
                 </li>
             }
         }

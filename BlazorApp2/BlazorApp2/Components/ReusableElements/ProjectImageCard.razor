@@ -3,7 +3,7 @@
 
 <div class="project-card">
     <div class="img-container">
-        <ImgWithHoverCaption></ImgWithHoverCaption>
+        <ImgWithHoverCaption ImgSource=@ImgSource ImgCaption=@ImgCaption></ImgWithHoverCaption>
     </div>
     <div class="text-container">
         <ProjectTitle Title=@title></ProjectTitle>
@@ -17,5 +17,8 @@
     public required string title { get; set; }
     [Parameter]
     public required List<Skill> SkillList { get; set; }
-
+    [Parameter]
+    public required string ImgSource { get; set; }
+    [Parameter]
+    public required string ImgCaption { get; set; }
 }
