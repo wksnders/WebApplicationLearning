@@ -15,11 +15,19 @@ div .testimonial-content {
     height: 55vh;
 }
 
-.testimonial-quote {
+.testimonial-quote-container {
     max-width: 700px;
     margin: 0 auto 2.5rem;
     height: 62.5%;
-    overflow-y:clip;
+    overflow-y: clip;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial-quote {
+    text-align: center;
+    text-overflow:ellipsis;
+    margin:0;
 }
 
 h2 {
