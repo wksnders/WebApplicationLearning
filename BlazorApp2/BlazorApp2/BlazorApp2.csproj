@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Images\CSProjects\" />
-    <Folder Include="wwwroot\Images\GamesProjects\" />
     <Folder Include="wwwroot\ClickerGameComponents\" />
     <Folder Include="wwwroot\Images\FeaturedProjects\" />
     <Folder Include="wwwroot\SVGs\Languages\" />
