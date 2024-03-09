@@ -25,8 +25,15 @@ namespace BlazorApp2.Models.ComponentModels
                 await Task.Delay(2500);
             }
         }*/
-
-        public void SetCaroselIndex(int newIndex)
+        public void Next(bool wrapAround = false)
+        {
+            SetCaroselIndex(ActiveIndex+1, wrapAround);
+        }
+        public void Previous(bool wrapAround = false)
+        {
+            SetCaroselIndex(ActiveIndex-1,wrapAround);
+        }
+        public void SetCaroselIndex(int newIndex, bool wrapAround = false)
         {
             if (NumPages <= 0)
             {
@@ -34,11 +41,11 @@ namespace BlazorApp2.Models.ComponentModels
             }
             if (newIndex >= NumPages)
             {
-                newIndex = NumPages - 1;
+                newIndex = wrapAround? 0:NumPages - 1;
             }
             else if (newIndex < 0)
             {
-                newIndex = 0;
+                newIndex = wrapAround ? NumPages - 1 : 0;
             }
 
             ActiveIndex = newIndex;

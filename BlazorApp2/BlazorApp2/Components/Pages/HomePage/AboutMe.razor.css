@@ -5,7 +5,7 @@
 }
 
 section {
-    padding-top: 1rem;
+    padding: 1rem 1.5rem 0 1.5rem;
     background: #fff;
     box-shadow: 0 6px 24px -6px #0000001a;
 }
@@ -90,6 +90,9 @@ h4 {
     padding: 50px 30px;
     border-bottom: 1px solid #E6ECF8;
     border-right: 0px solid #E6ECF8;
+}
+.skill-column:last-child {
+    border-right:none;
 }
 
 .double-wide {

@@ -1,7 +1,7 @@
-﻿@using BlazorApp2.Components.ReusableElements.Carousel
+﻿@using BlazorApp2.Components.ReusableElements
+@using BlazorApp2.Components.ReusableElements.Carousel
 @using BlazorApp2.Models;
 @using Models.ComponentModels
-@using BlazorApp2.Components.Layout.ProjectLayout;
 
 <section style="background-color:@backgroundColor">
     @if (projects is null || carouselModel is null)
@@ -81,5 +81,18 @@
         StateHasChanged();
     }
 
+
+    private void CarouselNext()
+    {
+        
+    }
+    private void CarouselAdvance()
+    {
+
+    }
+    private void CarouselPrevious()
+    {
+
+    }
 
 }
