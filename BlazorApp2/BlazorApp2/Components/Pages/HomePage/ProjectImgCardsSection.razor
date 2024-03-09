@@ -15,10 +15,9 @@
                 {
                     continue;
                 }
-                <li>
-                    <ProjectImageCard SkillList=ProjectData.projectsToSkills[projectkey]
+                <ProjectImageCard SkillList=ProjectData.projectsToSkills[projectkey]
                                       title=@ProjectData.ImgProjectsToDescriptions[projectkey].DisplayName ImgSource=@ProjectData.ImgProjectsToDescriptions[projectkey].DisplayImg ImgCaption=@ProjectData.ImgProjectsToDescriptions[projectkey].Caption />
-                </li>
+                
             }
         }
     </ul>

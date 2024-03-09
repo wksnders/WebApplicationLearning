@@ -1,7 +1,7 @@
 ﻿@using BlazorApp2.Components.Layout.ProjectLayout
 @using BlazorApp2.Models;
 
-<div class="project-card">
+<li class="project-card">
     <div class="img-container">
         <ImgWithHoverCaption ImgSource=@ImgSource ImgCaption=@ImgCaption></ImgWithHoverCaption>
     </div>
@@ -9,7 +9,7 @@
         <ProjectTitle Title=@title></ProjectTitle>
         <SkillsDisplay SkillList=@SkillList></SkillsDisplay>
     </div>
-</div>
+</li>
                 
 
 @code {

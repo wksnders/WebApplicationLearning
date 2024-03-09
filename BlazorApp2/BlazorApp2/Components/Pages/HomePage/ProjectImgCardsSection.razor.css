@@ -4,27 +4,12 @@
 }
 
 ul {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     margin: 0;
     padding: 0;
     list-style-type: none;
-    justify-content: space-between;
     box-sizing: border-box;
-}
 
-li {
-    min-height:400px;
-    min-width:400px;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    flex-grow: 0;
-    flex-shrink: 1;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 1.2em;
-    border-radius: 0.2rem;
-    background-color: #fff;
-    box-shadow: 0px 8px 6px -6px rgba(235, 234, 242, 0.58);
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    grid-gap:40px;
 }
