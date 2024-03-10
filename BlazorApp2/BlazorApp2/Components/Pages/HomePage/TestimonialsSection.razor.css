@@ -5,7 +5,7 @@
 section {
     padding: 5rem 1.5rem 2rem 1.5rem;
     background-color: #f0f3f4;
-    height: 90vh;
+    min-height : 90vh;
 }
 
 div .testimonial-content {
@@ -13,6 +13,7 @@ div .testimonial-content {
     padding: 0;
     border: 0;
     height: 55vh;
+    min-height:400px;
 }
 
 .testimonial-quote-container {

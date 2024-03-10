@@ -24,6 +24,7 @@ span {
     bottom: 4%;
     right: .5rem;
 }
+
 /*
 .img-container:hover span {
     display: block;
@@ -35,4 +36,5 @@ span {
 .text-container {
     flex-grow: 1;
     background-color: #fff;
+    padding: .75rem;
 }

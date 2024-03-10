@@ -1,24 +1,20 @@
 ﻿@using BlazorApp2.Components.ReusableElements
 <section id="Projects">
     <div class="content">
-        <div class="project-column">
+        <div class="grid">
             <div class="non-image-wrapper">
                 <h3 class="header-text weight-heavy">My Latest Projects</h3>
+            </div>
+            <div class="Image-aspect-wrapper-feature">
+                <FeaturedProject Title="Singularity" ProjectImage="Images/FeaturedProjects/Singularity.png" />
+            </div>
+            <div class="Image-aspect-wrapper">
+                <FeaturedProject Title="Prayr" ProjectImage="Images/FeaturedProjects/Prayr.png" />
             </div>
             <div class="Image-aspect-wrapper">
                 <FeaturedProject Title="Tower Rush" ProjectImage="Images/FeaturedProjects/TowerRush.jpg" />
             </div>
-        </div>
-        <div class="project-column extra-wide">
-            <div class="Image-aspect-wrapper-feature">
-                <FeaturedProject Title="Singularity" ProjectImage="Images/FeaturedProjects/Singularity.png" />
-            </div>
-        </div>
-        <div class="project-column">
-            <div class="Image-aspect-wrapper">
-                <FeaturedProject Title="Prayr" ProjectImage="Images/FeaturedProjects/Prayr.png" />
-            </div>
-            <div class="non-image-wrapper">
+            <div class="non-image-wrapper centered-button">
                 <div class="my-resume-button">
                     <HyperlinkButtonLogo Hyperlink="https://drive.google.com/file/d/1bm4Vwtk8o6wn_HDoRKwNAUYWCL4aa-cv/view?usp=drive_link" ButtonText="Printable Resume" ButtonIconPath="SVGs/resume.svg" />
                 </div>

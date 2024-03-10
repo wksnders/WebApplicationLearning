@@ -20,12 +20,15 @@
     flex-grow: 1;
     flex-shrink: 1;
     vertical-align: baseline;
-    padding: 50px 30px;
 }
+    .project-column:last-child {
+        border-right: none;
+    }
 
 .double-wide {
     flex-basis: 1;
     flex-grow: 2;
+    padding-right: .5em;
 }
 
 .wide-screen {
@@ -39,11 +42,11 @@
 @media screen and (min-width: 900px) {
     .project-content {
         display: flex;
+        gap: 1.5rem;
     }
 
     .project-column {
         border-right: 1px solid #E6ECF8;
-        padding: 60px 35px;
     }
 
     .wide-screen {
