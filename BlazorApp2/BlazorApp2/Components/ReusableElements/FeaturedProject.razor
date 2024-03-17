@@ -1,4 +1,4 @@
-﻿<a class="project-container" href="">
+﻿<a class="project-container" href="@ProjectLink">
     <div class="project-info">
         <h2 class="subheader-text weight-heavy">@Title</h2>
         <div class="project-link">
@@ -15,4 +15,6 @@
     public required string Title { get; set; }
     [Parameter]
     public required string ProjectImage { get; set; }
+    [Parameter]
+    public required string ProjectLink { get; set; }
 }
