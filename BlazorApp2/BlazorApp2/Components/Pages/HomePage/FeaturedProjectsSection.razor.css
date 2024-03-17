@@ -3,7 +3,7 @@
     width: 100%;
     background-color: #000;
     justify-content: center;
-    min-height: 90vh;
+    min-height: 80vh;
     position: relative;
 }
 
@@ -13,10 +13,9 @@ h3 {
 }
 
 div.content {
-    width:100%;
     height:auto;
     padding: 5rem 1.5rem 2rem 1.5rem;
-    /*max-width: 1300px;*/
+    max-width: 1300px;
     box-sizing: border-box;
 }
 
@@ -43,6 +42,7 @@ div.centered-button {
 
 @media screen and (min-width: 900px) {
     section {
+        max-height: 90vh;
     }
     div.grid {
         display: grid;
@@ -58,6 +58,4 @@ div.centered-button {
         justify-content:center;
         align-items:center;
     }
-
-
 }
