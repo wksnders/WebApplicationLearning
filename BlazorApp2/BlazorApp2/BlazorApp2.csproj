@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\Images\CSProjects\" />
     <Folder Include="wwwroot\ClickerGameComponents\" />
-    <Folder Include="wwwroot\Images\FeaturedProjects\" />
     <Folder Include="wwwroot\Images\Parallax\" />
     <Folder Include="wwwroot\SVGs\Languages\" />
   </ItemGroup>
