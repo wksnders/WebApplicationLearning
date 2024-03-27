@@ -1,4 +1,11 @@
-﻿.feature-wrapper {
+﻿article {
+    min-height: 90vh;
+}
+.singularity-title-img {
+    max-width:100%;
+}
+
+.feature-wrapper {
     margin: 0px;
     height: 800px;
     text-align: center;
