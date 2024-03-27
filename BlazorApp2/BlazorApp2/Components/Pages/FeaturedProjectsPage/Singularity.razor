@@ -1,4 +1,6 @@
-﻿<article id="Singularity">
+﻿@using BlazorApp2.Components.ReusableElements
+
+<article id="Singularity">
     <div class="background-img1"></div>
     <section class="feature-wrapper">
         <img class="singularity-title-img" src="Images/FeaturedProjects/Singularity_Logo.png" />
@@ -48,13 +50,15 @@
     </section>
 
     <section class="white-background">
-        <div class="Links">
-            <a href="https://gamefound.com/en/projects/octothorpe/singularityexe">Gamefound Page</a>
-            <a href="https://www.playsingularity.com/">Official Website</a>
-            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2968522499">Play Now on Tabletop Simulator</a>
+        <div class="links">
+            <a class="body-text" rel="noreferrer" target="_blank" href="https://gamefound.com/en/projects/octothorpe/singularityexe">Gamefound Page</a>
+            <a class="body-text" rel="noreferrer" target="_blank" href="https://www.playsingularity.com/">Official Website</a>
+            <a class="body-text" rel="noreferrer" target="_blank" href="https://steamcommunity.com/sharedfiles/filedetails/?id=2968522499">Play Now on Tabletop Simulator</a>
         </div>
         <h2 class="header-text weight-heavy">Let’s Connect!</h2>
-        Thank you for reviewing my work on Singularity! For more details or to discuss potential collaborations, feel free to reach out to me using the buttons below.
+        <p class="body-text">Thank you for reviewing my work on Singularity! For more details or to discuss potential collaborations, feel free to reach out to me using the buttons below.</p>
+        <ContactButtons>
+        </ContactButtons>
     </section>
 </article>
 
