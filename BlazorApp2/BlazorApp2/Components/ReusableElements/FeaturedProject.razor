@@ -2,7 +2,7 @@
     <div class="project-info">
         <h2 class="subheader-text weight-heavy">@Title</h2>
         <div class="project-link">
-            <span class="body-text">see more</span>
+            <span class="body-text">@Role</span>
             <img src="SVGs/Hyperlink.svg" class="featured-project-link" />
         </div>
     </div>
@@ -13,6 +13,8 @@
 
     [Parameter]
     public required string Title { get; set; }
+    [Parameter]
+    public required string Role { get; set; }
     [Parameter]
     public required string ProjectImage { get; set; }
     [Parameter]
